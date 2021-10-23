@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/interpolator-v21/mtrl_linear_out_slow_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/interpolator-v21/mtrl_linear_out_slow_in.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/interpolator-v21/mtrl_fast_out_slow_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/interpolator-v21/mtrl_fast_out_linear_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/interpolator-v21/mtrl_fast_out_linear_in.xml"
+    }
+]

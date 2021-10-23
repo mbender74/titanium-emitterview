@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+	<id>de.marcbender.testemitterapp</id>
+	<name>testemitterapp</name>
+	<version>1.0</version>
+	<publisher>not specified</publisher>
+	<url></url>
+	<description></description>
+	<copyright>not specified</copyright>
+	<icon>appicon.png</icon>
+	<fullscreen>false</fullscreen>
+	<navbar-hidden>false</navbar-hidden>
+	<analytics>true</analytics>
+	<guid>8956dbd4-0d40-40b8-a78b-f7ec248bb38f</guid>
+	<property name="ti.ui.defaultunit" type="string">dp</property>
+	<property name="run-on-main-thread" type="bool">true</property>
+	<ios>
+		<enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+		<use-app-thinning>true</use-app-thinning>
+		<plist>
+			<dict>
+				<key>UISupportedInterfaceOrientations~iphone</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+				</array>
+				<key>UISupportedInterfaceOrientations~ipad</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+					<string>UIInterfaceOrientationPortraitUpsideDown</string>
+					<string>UIInterfaceOrientationLandscapeLeft</string>
+					<string>UIInterfaceOrientationLandscapeRight</string>
+				</array>
+				<key>UIRequiresPersistentWiFi</key>
+				<false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+				<key>UIStatusBarHidden</key>
+				<false/>
+				<key>UIStatusBarStyle</key>
+				<string>UIStatusBarStyleDefault</string>
+			</dict>
+		</plist>
+	</ios>
+	
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+               	<uses-sdk>28</uses-sdk>
+                <manifest android:versionCode="3" android:versionName="1.0.0">
+                  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
+                  <!-- <supports-screens android:anyDensity="true"
+                        android:xlargeScreens="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/> -->
+   			     <application android:hardwareAccelerated="true" android:largeHeap="true"></application>
+                </manifest>
+                <property name="ti.android.compilejs" type="bool">true</property>
+                <property name="ti.deploytype">production</property>
+        </android>
+
+	<modules>
+	        <module platform="android">de.marcbender.emitterview</module>
+	        <module platform="iphone">de.marcbender.emitterview</module>
+	</modules>
+	<deployment-targets>
+		<target device="android">true</target>
+		<target device="ipad">true</target>
+		<target device="iphone">true</target>
+	</deployment-targets>
+	<sdk-version>10.1.0.GA</sdk-version>
+</ti:app>

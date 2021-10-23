@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/anim-v21/fragment_fast_out_extra_slow_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ee7cbf882ca4b6f2f52e9e342c6f00d5/transformed/fragment-1.3.6/res/anim-v21/fragment_fast_out_extra_slow_in.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/anim-v21/mtrl_bottom_sheet_slide_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/anim-v21/mtrl_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/anim-v21/mtrl_bottom_sheet_slide_out.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/anim-v21/mtrl_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    }
+]

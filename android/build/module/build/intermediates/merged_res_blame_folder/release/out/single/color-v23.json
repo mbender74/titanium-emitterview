@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_default.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/2c6f62d21dc441aa2a2c084eb539ac0d/transformed/appcompat-1.3.1/res/color-v23/abc_tint_btn_checkable.xml"
+    }
+]

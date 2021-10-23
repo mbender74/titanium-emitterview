@@ -1,0 +1,81 @@
+{
+  "_buildCommand2" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "c6e0539fc1cacfa2520d5f6708f8dea4a09fb951c034171470b90f08d9b4d082"
+    }
+  ],
+  "containerPath" : "/Users/marcbender/Desktop/titanium-emitterview/ios/titanium-emitterview.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "install",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx11.3",
+      "sdkVariant" : "iosmac",
+      "supportedArchitectures" : [
+        "x86_64h",
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Products",
+      "derivedDataPath" : "/Users/marcbender/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/marcbender/Library/Developer/Xcode/DerivedData/titanium-emitterview-enkimybseugjbfeceyirnallmsgw/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/marcbender/Library/Developer/Xcode/DerivedData/titanium-emitterview-enkimybseugjbfeceyirnallmsgw/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "ONLY_ACTIVE_ARCH" : "NO",
+          "SDKROOT" : "macosx11.3",
+          "SKIP_INSTALL" : "NO",
+          "SUPPORTS_MACCATALYST" : "YES"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "install",
+          "ASSET_PACK_FOLDER_PATH" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/InstallationBuildProductsLocation/OnDemandResources",
+          "BITCODE_GENERATION_MODE" : "bitcode",
+          "DEPLOYMENT_LOCATION" : "YES",
+          "DEPLOYMENT_POSTPROCESSING" : "YES",
+          "DSTROOT" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/InstallationBuildProductsLocation",
+          "EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE" : "NO",
+          "ENABLE_PREVIEWS" : "NO",
+          "INDEX_ENABLE_DATA_STORE" : "NO",
+          "MESSAGES_APPLICATION_EXTENSION_SUPPORT_FOLDER_PATH" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath/MessagesApplicationExtensionSupport",
+          "MESSAGES_APPLICATION_SUPPORT_FOLDER_PATH" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath/MessagesApplicationSupport",
+          "OBJROOT" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/IntermediateBuildFilesPath",
+          "SHARED_PRECOMPS_DIR" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/PrecompiledHeaders",
+          "SWIFT_STDLIB_TOOL_UNSIGNED_DESTINATION_DIR" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath/SwiftSupport",
+          "SYMROOT" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath",
+          "WATCHKIT_2_SUPPORT_FOLDER_PATH" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath/WatchKitSupport2",
+          "WATCHKIT_SUPPORT_FOLDER_PATH" : "/Users/marcbender/Desktop/titanium-emitterview/ios/Build/Intermediates.noindex/ArchiveIntermediates/titanium-emitterview/BuildProductsPath/WatchKitSupport"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "archive",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

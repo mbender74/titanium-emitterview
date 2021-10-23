@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v27/values-v27.xml",
+            "map": [
+                {
+                    "source": "/Users/marcbender/.gradle/caches/transforms-3/b89c829d72baaf243dace6c590ddfc00/transformed/titanium-10.1.0/res/values-v27/values-v27.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "10",
+                        "endColumns": "9",
+                        "endOffsets": "617"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/values-v27/values-v27.xml",
+            "map": [
+                {
+                    "source": "/Users/marcbender/.gradle/caches/transforms-3/b89c829d72baaf243dace6c590ddfc00/transformed/titanium-10.1.0/res/values-v27/values-v27.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "10",
+                        "endColumns": "9",
+                        "endOffsets": "617"
+                    }
+                }
+            ]
+        }
+    ]
+}

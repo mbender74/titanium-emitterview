@@ -1,0 +1,5 @@
+R_DEF: Internal format may change without notice
+local
+anim anim_image
+id emitter_view
+layout layout_main

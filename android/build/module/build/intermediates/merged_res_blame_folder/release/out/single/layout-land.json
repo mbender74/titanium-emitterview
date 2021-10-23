@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/layout-land/material_timepicker.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/layout-land/material_timepicker.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/layout-land/mtrl_picker_header_dialog.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/layout-land/mtrl_picker_header_dialog.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/layout-land/material_clock_period_toggle_land.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/layout-land/material_clock_period_toggle_land.xml"
+    }
+]

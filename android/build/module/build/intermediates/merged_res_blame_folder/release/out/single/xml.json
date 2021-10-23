@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/standalone_badge_gravity_bottom_start.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/xml/standalone_badge_gravity_bottom_start.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/standalone_badge.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/xml/standalone_badge.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/standalone_badge_gravity_top_start.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/xml/standalone_badge_gravity_top_start.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/standalone_badge_gravity_bottom_end.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/xml/standalone_badge_gravity_bottom_end.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/standalone_badge_offset.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/ecb44e9db50331d7f619fbb742715a36/transformed/material-1.4.0/res/xml/standalone_badge_offset.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/titanium_ui_horizontal_nested_scrollview.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/b89c829d72baaf243dace6c590ddfc00/transformed/titanium-10.1.0/res/xml/titanium_ui_horizontal_nested_scrollview.xml"
+    },
+    {
+        "merged": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/merged_res/release/xml/titanium_ui_vertical_nested_scrollview.xml",
+        "source": "/Users/marcbender/.gradle/caches/transforms-3/b89c829d72baaf243dace6c590ddfc00/transformed/titanium-10.1.0/res/xml/titanium_ui_vertical_nested_scrollview.xml"
+    }
+]

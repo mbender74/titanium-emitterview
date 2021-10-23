@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.2
+apiversion: 2
+architectures: arm64 x86_64
+mac: true
+description: titanium-emitterview
+author: Marc Bender
+license: Apache 2.0
+copyright: Copyright (c) 2021-present by Marc Bender
+
+# these should not be edited
+name: titanium-emitterview
+moduleid: de.marcbender.emitterview
+guid: 86a423f1-3736-41c5-95b8-86ca93d0713f
+platform: iphone
+minsdk: 10.0.0

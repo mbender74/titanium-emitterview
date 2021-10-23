@@ -1,0 +1,156 @@
+{
+  "abi": "X86",
+  "info": {
+    "abi": "X86",
+    "bitness": 32,
+    "deprecated": false,
+    "default": true
+  },
+  "cxxBuildFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181/x86",
+  "soFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/obj/local/x86",
+  "soRepublishFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/ndkBuild/release/obj/local/x86",
+  "abiPlatformVersion": 19,
+  "variant": {
+    "buildSystemArgumentList": [
+      "APP_STL:\u003dc++_shared",
+      "-j12",
+      "--output-sync\u003dnone"
+    ],
+    "cFlagsList": [],
+    "cppFlagsList": [
+      "-std\u003dc++14"
+    ],
+    "variantName": "release",
+    "soFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/obj/local",
+    "soRepublishFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/ndkBuild/release/obj/local",
+    "cxxBuildFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181",
+    "intermediatesFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": [],
+    "implicitBuildTargetSet": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "module": {
+      "cxxFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx",
+      "intermediatesBaseFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates",
+      "intermediatesFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx",
+      "gradleModulePathName": ":module",
+      "moduleRootFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module",
+      "moduleBuildFile": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build.gradle",
+      "makeFile": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+      "buildSystem": "NDK_BUILD",
+      "ndkFolder": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529",
+      "ndkVersion": "21.4.7075529",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultStl": "SYSTEM",
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 30,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30
+        }
+      },
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "cmakeToolchainFile": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
+          "ARM64_V8A": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+          "X86": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
+          "X86_64": "/Users/marcbender/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      },
+      "project": {
+        "rootBuildGradleFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build",
+        "sdkFolder": "/Users/marcbender/Library/Android/sdk",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false
+      },
+      "nativeBuildOutputLevel": "QUIET"
+    },
+    "prefabClassPathFileCollection": [],
+    "prefabPackageDirectoryListFileCollection": [],
+    "stlType": "system",
+    "optimizationTag": "Release"
+  },
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "prefabFolder": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181/prefab/x86",
+  "isActiveAbi": true,
+  "fullConfigurationHash": "b1k4q181fx4d2w1m575q54274i6q6m42552tlhl6o4902s1m3o5h1xq5s",
+  "configurationArguments": [
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "APP_ABI\u003dx86",
+    "NDK_ALL_ABIS\u003dx86",
+    "NDK_DEBUG\u003d0",
+    "APP_PLATFORM\u003dandroid-19",
+    "NDK_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/obj",
+    "NDK_LIBS_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/lib",
+    "APP_CPPFLAGS+\u003d-std\u003dc++14",
+    "APP_STL:\u003dc++_shared",
+    "-j12",
+    "--output-sync\u003dnone"
+  ]
+}

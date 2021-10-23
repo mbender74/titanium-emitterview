@@ -1,0 +1,98 @@
+
+23.10.2021, 13:39:42
+
+Operating System
+  Name                        = macOS
+  Version                     = 12.0
+  Architecture                = 64bit
+  # CPUs                      = 12
+  Memory                      = 34359738368
+
+Node.js
+  Node.js Version             = 14.18.1
+  npm Version                 = 6.14.15
+
+Titanium CLI
+  CLI Version                 = 5.3.2
+
+Titanium SDK
+  SDK Version                 = 10.1.0.v20210914014738
+  SDK Path                    = /Users/marcbender/Library/Application Support/Titanium/mobilesdk/osx/10.1.0.v20210914014738
+  Target Platform             = android
+
+Command
+  /usr/local/bin/node /usr/local/bin/titanium build --build-only --sdk 10.1.0.v20210914014738 --platform android --force
+
+[INFO]   Assets Dir: /Users/marcbender/Desktop/titanium-emitterview/assets
+[INFO]   Documentation Dir: /Users/marcbender/Desktop/titanium-emitterview/documentation
+[INFO]   Example Dir: /Users/marcbender/Desktop/titanium-emitterview/example
+[INFO]   Platform Dir: /Users/marcbender/Desktop/titanium-emitterview/android/platform
+[INFO]   Resources Dir: /Users/marcbender/Desktop/titanium-emitterview/android/Resources
+[INFO]   Generating root project files
+[INFO]   Generating gradle project: module
+[INFO]   Building module
+[INFO]   [GRADLE] > Task :module:preBuild
+[INFO]   [GRADLE] > Task :module:preReleaseBuild
+[INFO]   [GRADLE] > Task :module:compileReleaseAidl NO-SOURCE
+[INFO]   [GRADLE] > Task :module:compileReleaseRenderscript NO-SOURCE
+[INFO]   [GRADLE] > Task :module:generateReleaseBuildConfig UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:generateReleaseResValues UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:generateReleaseResources UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:packageReleaseResources UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:parseReleaseLocalResources UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:processReleaseManifest UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:generateReleaseRFile UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:kaptGenerateStubsReleaseKotlin
+[INFO]   [GRADLE] > Task :module:javaPreCompileRelease UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:configureNdkBuildRelease
+[INFO]   [GRADLE] > Task :module:mergeReleaseJniLibFolders UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:mergeReleaseShaders UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:compileReleaseShaders NO-SOURCE
+[INFO]   [GRADLE] > Task :module:generateReleaseAssets UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:packageReleaseAssets UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:packageReleaseRenderscript NO-SOURCE
+[INFO]   [GRADLE] > Task :module:prepareLintJarForPublish UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:prepareReleaseArtProfile UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:processReleaseJavaRes NO-SOURCE
+[INFO]   [GRADLE] > Task :module:writeReleaseAarMetadata UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:mergeReleaseResources UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:verifyReleaseResources UP-TO-DATE
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] > Task :module:kaptReleaseKotlin
+[INFO]   [GRADLE] [KrollBindingGen] Running Kroll binding generator.
+[INFO]   [GRADLE] [KrollBindingGen] Found binding for module TiView
+[INFO]   [GRADLE] [KrollBindingGen] Found binding for proxy View
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] > Task :module:compileReleaseKotlin
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] > Task :module:compileReleaseJavaWithJavac
+[INFO]   [GRADLE] The following annotation processors are not incremental: kroll-apt.jar.
+[INFO]   [GRADLE] Make sure all annotation processors are incremental to improve your build speed.
+[INFO]   [GRADLE] Running Titanium "generate-cpp-files.js" script.
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] > Task :module:buildNdkBuildRelease
+[INFO]   [GRADLE] > Task :module:externalNativeBuildRelease
+[INFO]   [GRADLE] > Task :module:mergeReleaseNativeLibs UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:stripReleaseDebugSymbols UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:extractReleaseAnnotations
+[INFO]   [GRADLE] > Task :module:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:mergeReleaseConsumerProguardFiles UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:mergeReleaseJavaResource UP-TO-DATE
+[INFO]   [GRADLE] > Task :module:syncReleaseLibJars
+[INFO]   [GRADLE] > Task :module:bundleReleaseAar
+[INFO]   [GRADLE] > Task :module:compileReleaseSources
+[INFO]   [GRADLE] > Task :module:assembleRelease
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] BUILD SUCCESSFUL in 6s
+[INFO]   [GRADLE] 32 actionable tasks: 11 executed, 21 up-to-date
+[INFO]   [GRADLE] > Task :module:generatePomFileForTitaniumPublicationPublication
+[INFO]   [GRADLE] > Task :module:publishTitaniumPublicationPublicationToMavenRepository
+[INFO]   [GRADLE] > Task :module:publish
+[INFO]   [GRADLE] 
+[INFO]   [GRADLE] BUILD SUCCESSFUL in 656ms
+[INFO]   [GRADLE] 2 actionable tasks: 2 executed
+[INFO]   Packaging the module
+[INFO]   Creating module zip
+[INFO]   Writing module zip: /Users/marcbender/Desktop/titanium-emitterview/android/dist/de.marcbender.emitterview-android-1.0.2.zip
+[INFO]   Project built successfully in 8s 977ms

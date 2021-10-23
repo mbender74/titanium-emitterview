@@ -1,0 +1,156 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 19 min SDK version: x86_64",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1171566492
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON /Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181/x86_64/android_gradle_build.json due to:",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -881540964
+  },
+  {
+    "level_": 0,
+    "message_": "- a dependent build file changed",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1098381847
+  },
+  {
+    "level_": 0,
+    "message_": "  - /Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1060293486
+  },
+  {
+    "level_": 0,
+    "message_": "keeping json folder \u0027/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181/x86_64\u0027 but regenerating project",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -580551763
+  },
+  {
+    "level_": 0,
+    "message_": "executing ndkBuild Executable : /Users/marcbender/Library/android-sdk-macosx/ndk/21.4.7075529/ndk-build\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk\nAPP_ABI\u003dx86_64\nNDK_ALL_ABIS\u003dx86_64\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-19\nNDK_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/obj\nNDK_LIBS_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/lib\nAPP_CPPFLAGS+\u003d-std\u003dc++14\nAPP_STL:\u003dc++_shared\n-j12\n--output-sync\u003dnone\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1789998110
+  },
+  {
+    "level_": 0,
+    "message_": "Executable : /Users/marcbender/Library/android-sdk-macosx/ndk/21.4.7075529/ndk-build\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk\nAPP_ABI\u003dx86_64\nNDK_ALL_ABIS\u003dx86_64\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-19\nNDK_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/obj\nNDK_LIBS_OUT\u003d/Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/b1k4q181/lib\nAPP_CPPFLAGS+\u003d-std\u003dc++14\nAPP_STL:\u003dc++_shared\n-j12\n--output-sync\u003dnone\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -2035943371
+  },
+  {
+    "level_": 0,
+    "message_": "parse and convert ndk-build output to build configuration JSON",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1282629823
+  },
+  {
+    "level_": 0,
+    "message_": "done executing ndkBuild",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 582216743
+  },
+  {
+    "level_": 0,
+    "message_": "write command file /Users/marcbender/Desktop/titanium-emitterview/android/build/module/build/.cxx/Release/b1k4q181/x86_64/metadata_generation_command.txt",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 48612774
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "tag_": "release|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1900580323
+  }
+]
