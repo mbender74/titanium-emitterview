@@ -28,7 +28,7 @@ returns the **emitterViewObject**
 
 
 ## emitterViewObject Methods
-### `emitImage({animated:bool}) `
+### `emitImage({properties}) `
 
 ## Properties
 
