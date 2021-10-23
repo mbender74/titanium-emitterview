@@ -34,11 +34,6 @@ returns the **emitterViewObject**
 ### `id:INTEGER (starting with 1, a specific image from the particleImages array to emit)` (optional)
 
 
- sourceView:buttonView, // obligatory!!!
-                startId:3, // optional
-                endId:emitterImages.length, // optional
-                // id:1 // optional - select a specific image from the 'particleImages' array to be emitted
-
 
 ## Example
 
