@@ -1,6 +1,13 @@
 # Titanium image-emitter-view module 
 
 
+
+<img src="./ios-demo.gif" width="293" height="634" alt="ios-demo" />
+
+<img src="./android-demo.gif" width="293" height="634" alt="android-demo" />
+
+
+
 ## Methods
 
 ### MODULE  -> `createView({properties}) `
