@@ -2,9 +2,9 @@
 
 
 
-<img src="./ios-demo.gif" width="293" height="634" alt="ios-demo" />
+<img src="./ios-demo.gif" width="253"  alt="ios-demo" />
 
-<img src="./android-demo.gif" width="293" height="634" alt="android-demo" />
+<img src="./android-demo.gif" width="253" alt="android-demo" />
 
 
 
