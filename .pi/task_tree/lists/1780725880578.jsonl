@@ -1,0 +1,13 @@
+{"version":1}
+{"index":"1","parentIndex":"root","title":"Git checkout und commit","description":"in_progress","completed":false,"deleted":false}
+{"index":"2","parentIndex":"root","title":"Amplitude-Bug fixen","description":"% statt + bei finalAmplitude in HeartEmitterView.m","completed":false,"deleted":false}
+{"index":"3","parentIndex":"root","title":"Pfad-Berechnung optimieren","description":"while-Schleife mit ~50 KeyPoints statt 1200 Pixeln","completed":false,"deleted":false}
+{"index":"4","parentIndex":"root","title":"Layer-Position fixen","description":"bounds.size.width/4 → image.size.width/2","completed":false,"deleted":false}
+{"index":"5","parentIndex":"root","title":"Property Setter robust machen","description":"nil-Prüfung, Typ-Korrektur (NSInteger→CGFloat), Bounds-Validierung","completed":false,"deleted":false}
+{"index":"6","parentIndex":"root","title":"frameSizeChanged fixen","description":"TiUtils setView → direkt frame setzen","completed":false,"deleted":false}
+{"index":"7","parentIndex":"root","title":"Bild-Caching und Array-Kopie","description":"setParticleImages_ sicher kopieren, NSCache für Bilder","completed":false,"deleted":false}
+{"index":"8","parentIndex":"root","title":"Thread-Safety","description":"currentCount atomar, dispatch_after entfernen","completed":false,"deleted":false}
+{"index":"9","parentIndex":"root","title":"Konfigurations-Defaults synchronisieren","description":"setup() Werte mit initializeState() synchronisieren","completed":false,"deleted":false}
+{"index":"10","parentIndex":"root","title":"Leere Lifecycle-Methoden aufräumen","description":"willMoveToSuperview und configurationSet entfernen/ausfüllen","completed":false,"deleted":false}
+{"index":"11","parentIndex":"root","title":"Layer-Pooling oder Cleanup","description":"unusedLayers-Pool implementieren oder entfernen","completed":false,"deleted":false}
+{"index":"12","parentIndex":"root","title":"Build testen","description":"cd ios && ti build -p ios --build-only","completed":false,"deleted":false}

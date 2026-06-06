@@ -1,0 +1,8 @@
+{"version":1}
+{"index":"1","parentIndex":"root","title":"Memory Management optimieren","description":"CALayer-Lecks, NSMutableArray Kopien, unusedLayers-Pool nicht genutzt","completed":false,"deleted":false}
+{"index":"2","parentIndex":"root","title":"Animation Performance verbessern","description":"Pfad-Berechnung ineffizient (while-Schleife pro Pixel), layer.position falsch berechnet bei tapPoint","completed":false,"deleted":false}
+{"index":"3","parentIndex":"root","title":"View Lifecycle korrekt implementieren","description":"frameSizeChanged nutzt TiUtils setView statt bounds direkt, configurationSet leer, willMoveToSuperview leer","completed":false,"deleted":false}
+{"index":"4","parentIndex":"root","title":"Property Setter robust machen","description":"Keine nil-Prüfung, floatValue für Integer-Properties, keine Bounds-Validierung","completed":false,"deleted":false}
+{"index":"5","parentIndex":"root","title":"Bild-Caching implementieren","description":"Bilder werden bei jedem setParticleImages_ komplett neu geladen, kein Weak-Reference für ButtonView","completed":false,"deleted":false}
+{"index":"6","parentIndex":"root","title":"Thread-Safety sicherstellen","description":"emitHeart hat 50ms dispatch_delay aber kein main-thread check für Layer-Operationen","completed":false,"deleted":false}
+{"index":"7","parentIndex":"root","title":"Konfigurations-Kopie Problem","description":"setup() Werte überschreiben JS-Properties (maxAmplitude=3, amplitude=12 statt SDK-defaults)","completed":false,"deleted":false}

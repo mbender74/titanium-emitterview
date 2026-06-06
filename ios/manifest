@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.2
+version: 1.0.3
 apiversion: 2
 architectures: arm64 x86_64
 mac: true
@@ -16,4 +16,4 @@ name: titanium-emitterview
 moduleid: de.marcbender.emitterview
 guid: 86a423f1-3736-41c5-95b8-86ca93d0713f
 platform: iphone
-minsdk: 10.0.0
+minsdk: 13.2.0
