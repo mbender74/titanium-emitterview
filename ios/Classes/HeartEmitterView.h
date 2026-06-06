@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, EmitterDirection) {
+    EmitterDirectionUp    = 0,  // Default: particles float upward
+    EmitterDirectionDown  = 1,  // Particles fall downward
+    EmitterDirectionLeft  = 2,  // Particles move left
+    EmitterDirectionRight = 3   // Particles move right
+};
+
 @interface HeartEmitterView : UIView
 
 @property (nonatomic, assign) CGFloat maxAmplitude;
@@ -27,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger currentCount;
 
 @property (nonatomic, assign) UIView *buttonView;
+
+@property (nonatomic, assign) EmitterDirection direction;
 
 
 - (void)emitImage:(UIImage *)image;

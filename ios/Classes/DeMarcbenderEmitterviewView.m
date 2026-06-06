@@ -90,6 +90,15 @@
     }
 }
 
+- (void)setDirection_:(id)args {
+    if (args) {
+        NSInteger direction = [TiUtils intValue:args];
+        if (direction >= 0 && direction <= 3) {
+            emitterView.direction = (EmitterDirection)direction;
+        }
+    }
+}
+
 - (void)setParticleImages_:(id)args {
     if (!args || ![args count]) {
         return;

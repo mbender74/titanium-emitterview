@@ -43,6 +43,7 @@
     
     self.maximumCount = 100;
     self.currentCount = 0;
+    self.direction = EmitterDirectionUp;
 }
 
 #pragma mark ---- < Deinit >
@@ -65,17 +66,32 @@
     
     // Use ~40 key points instead of pixel-by-pixel for performance
     NSUInteger numPoints = 40;
-    CGFloat totalDistance = end.y - start.y;
-    CGFloat step = totalDistance / (CGFloat)numPoints;
     
     for (NSUInteger i = 0; i <= numPoints; i++) {
-        CGFloat y = start.y - step * i;
         CGFloat normalizedY = (CGFloat)i / (CGFloat)numPoints;
         
-        // Sinusoidal wave for natural sway
-        CGFloat x = amplitude * sinf((normalizedY * M_PI * 2.0f) + offset);
+        // Linear interpolation from start to end
+        CGFloat x = start.x + (end.x - start.x) * normalizedY;
+        CGFloat y = start.y + (end.y - start.y) * normalizedY;
         
-        CGPoint point = CGPointMake(start.x + x, y);
+        // Sinusoidal wave for natural sway (perpendicular to movement direction)
+        CGFloat sway = amplitude * sinf((normalizedY * M_PI * 2.0f) + offset);
+        
+        // Apply sway perpendicular to the main direction
+        CGPoint point;
+        switch (self.direction) {
+            case EmitterDirectionUp:
+            case EmitterDirectionDown:
+                point = CGPointMake(x + sway, y);
+                break;
+            case EmitterDirectionLeft:
+            case EmitterDirectionRight:
+                point = CGPointMake(x, y + sway);
+                break;
+            default:
+                point = CGPointMake(x + sway, y);
+                break;
+        }
         
         if (i == 0) {
             [path moveToPoint:point];
@@ -85,6 +101,24 @@
     }
     
     return path;
+}
+
+- (CGPoint)calculateEndPointFromStart:(CGPoint)start {
+    CGFloat height = CGRectGetHeight(self.bounds);
+    CGFloat width = CGRectGetWidth(self.bounds);
+    
+    switch (self.direction) {
+        case EmitterDirectionUp:
+            return CGPointMake(start.x, start.y - height * 0.8f);
+        case EmitterDirectionDown:
+            return CGPointMake(start.x, start.y + height * 0.8f);
+        case EmitterDirectionLeft:
+            return CGPointMake(start.x - width * 0.8f, start.y);
+        case EmitterDirectionRight:
+            return CGPointMake(start.x + width * 0.8f, start.y);
+        default:
+            return CGPointMake(start.x, start.y - height * 0.8f);
+    }
 }
 
 - (void)emitImage:(UIImage *)image {
@@ -123,8 +157,8 @@
     
     [self.layer addSublayer:layer];
     
-    // Calculate end point (above the view with random vertical offset)
-    CGPoint endPoint = CGPointMake(startPoint.x, startPoint.y - height * 0.8f);
+    // Calculate end point based on direction
+    CGPoint endPoint = [self calculateEndPointFromStart:startPoint];
     
     // Random amplitude between amplitude and amplitude + maxAmplitude
     CGFloat finalAmplitude = self.amplitude + arc4random_uniform((NSUInteger)self.maxAmplitude);
