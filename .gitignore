@@ -1,4 +1,12 @@
-/build
+# Build folders
+*/build
+*/Build
+*/dist
+
+# Titanium artifacts
+*/manifest
+*/.ti
+*.xcconfig
 Carthage/
 ti.calendar-iphone-*.zip
 /Cartfile.resolved
