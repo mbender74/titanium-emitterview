@@ -1,6 +1,7 @@
-# Titanium Emitter View Module
+# Titanium Mobile SDK - Emitter View Module for iOS and Android
+(https://titaniumsdk.com)
 
-A cross-platform Titanium module for creating beautiful particle emission effects (like "Like" animations on social media).
+A cross-platform Titanium Mobile SDK module for creating beautiful particle emission effects (like "Like" animations on social media).
 
 ![iOS Demo](./ios-demo.gif) | ![Android Demo](./android-demo.gif)
 
