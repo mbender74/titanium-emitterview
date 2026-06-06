@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/color-night-v8/material_timepicker_modebutton_tint.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/color-night-v8/material_timepicker_modebutton_tint.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/color-night-v8/material_timepicker_button_stroke.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/color-night-v8/material_timepicker_button_stroke.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/color-night-v8/material_timepicker_clockface.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/color-night-v8/material_timepicker_clockface.xml"
+    }
+]

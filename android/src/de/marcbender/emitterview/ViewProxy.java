@@ -180,6 +180,11 @@ public class ViewProxy extends TiViewProxy
 					mEmitterView.maxDuration(TiConvert.toFloat(3.5f));
 			}
 
+			// Direction: 0=up, 1=down, 2=left, 3=right
+			if (d.containsKey("direction")) {
+					mEmitterView.direction(TiConvert.toInt(d.get("direction")));
+			}
+
 
 		}
 		 
@@ -331,7 +336,7 @@ public class ViewProxy extends TiViewProxy
 			int startId = TiConvert.toInt(options.get("startId"));
 			int endId = TiConvert.toInt(options.get("endId"));
 
-			idx = Math.max(startId, new Random().nextInt(endId+1)) - 1;
+			idx = startId + ThreadLocalRandom.current().nextInt(endId - startId + 1) - 1;
 		}
 	
 		else if (options.containsKey("id")) {
@@ -339,9 +344,9 @@ public class ViewProxy extends TiViewProxy
 			idx = (TiConvert.toInt(options.get("id"))) - 1;
 		}
 		else {
-	 		Random r = new Random();
+	 		
 
-	        idx = r.nextInt(imageReferences.size());			
+        idx = ThreadLocalRandom.current().nextInt(imageReferences.size());
 		}
 
 	 	Bitmap b = imageReferences.get(idx).getBitmap(false,true);

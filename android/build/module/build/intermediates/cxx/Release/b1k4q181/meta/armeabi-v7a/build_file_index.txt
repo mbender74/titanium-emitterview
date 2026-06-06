@@ -1,1 +1,0 @@
-/Users/marcbender/Desktop/titanium-emitterview/android/build/module/src/main/jni/Android.mk

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-sw600dp-v13/mtrl_layout_snackbar.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/layout-sw600dp-v13/design_layout_snackbar.xml"
+    }
+]

@@ -20,5 +20,5 @@ public final class BuildConfig {
   // Field from default config.
   public static final String TI_MODULE_NAME = "titanium-emitterview";
   // Field from default config.
-  public static final String TI_MODULE_VERSION = "1.0.2";
+  public static final String TI_MODULE_VERSION = "1.0.3";
 }

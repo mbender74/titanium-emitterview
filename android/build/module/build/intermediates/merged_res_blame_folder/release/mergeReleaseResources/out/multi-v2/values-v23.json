@@ -1,0 +1,166 @@
+{
+    "logs": [
+        {
+            "outputFile": "de.marcbender.emitterview.module-mergeReleaseResources-47:/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/8214d9a41455b72dfb2e710783aa10b0/transformed/material-1.12.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,9,13,16,19,22,25,28,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
+                        "endLines": "4,8,12,15,18,21,24,27,31,35",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
+                    },
+                    "to": {
+                        "startLines": "67,70,74,78,81,84,87,90,93,97",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4191,4407,4549,4710,4920,5127,5334,5537,5739,6004",
+                        "endLines": "69,73,77,80,83,86,89,92,96,100",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "4402,4544,4705,4915,5122,5329,5532,5734,5999,6272"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/aa579e1d31b6564140801cd817e42de4/transformed/titanium-13.2.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,200,366",
+                        "endLines": "4,7,15",
+                        "endColumns": "9,9,9",
+                        "endOffsets": "195,361,859"
+                    },
+                    "to": {
+                        "startLines": "6,9,59",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "487,632,3693",
+                        "endLines": "8,11,66",
+                        "endColumns": "9,9,9",
+                        "endOffsets": "627,793,4186"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/9a79c6a2e9b6ead55a6c4b67c87b807f/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "56",
+                        "startColumns": "4",
+                        "startOffsets": "3543",
+                        "endLines": "58",
+                        "endColumns": "12",
+                        "endOffsets": "3688"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/d6616702a1039ee99189e7d4f44306cf/transformed/appcompat-1.7.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,12,26,40,41,42,45,49,50,51,52",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,798,1536,2286,2405,2532,2754,2978,3093,3200,3313",
+                        "endLines": "2,3,4,5,25,39,40,41,44,48,49,50,51,55",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1531,2281,2400,2527,2749,2973,3088,3195,3308,3538"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "de.marcbender.emitterview.module-release-49:/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/8214d9a41455b72dfb2e710783aa10b0/transformed/material-1.12.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,9,13,16,19,22,25,28,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
+                        "endLines": "4,8,12,15,18,21,24,27,31,35",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
+                    },
+                    "to": {
+                        "startLines": "67,70,74,78,81,84,87,90,93,97",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4191,4407,4549,4710,4920,5127,5334,5537,5739,6004",
+                        "endLines": "69,73,77,80,83,86,89,92,96,100",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "4402,4544,4705,4915,5122,5329,5532,5734,5999,6272"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/aa579e1d31b6564140801cd817e42de4/transformed/titanium-13.2.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,200,366",
+                        "endLines": "4,7,15",
+                        "endColumns": "9,9,9",
+                        "endOffsets": "195,361,859"
+                    },
+                    "to": {
+                        "startLines": "6,9,59",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "487,632,3693",
+                        "endLines": "8,11,66",
+                        "endColumns": "9,9,9",
+                        "endOffsets": "627,793,4186"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/9a79c6a2e9b6ead55a6c4b67c87b807f/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "56",
+                        "startColumns": "4",
+                        "startOffsets": "3543",
+                        "endLines": "58",
+                        "endColumns": "12",
+                        "endOffsets": "3688"
+                    }
+                },
+                {
+                    "source": "/Users/marcbender/.gradle/caches/8.14.3/transforms/d6616702a1039ee99189e7d4f44306cf/transformed/appcompat-1.7.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,12,26,40,41,42,45,49,50,51,52",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,798,1536,2286,2405,2532,2754,2978,3093,3200,3313",
+                        "endLines": "2,3,4,5,25,39,40,41,44,48,49,50,51,55",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1531,2281,2400,2527,2749,2973,3088,3195,3308,3538"
+                    }
+                }
+            ]
+        }
+    ]
+}

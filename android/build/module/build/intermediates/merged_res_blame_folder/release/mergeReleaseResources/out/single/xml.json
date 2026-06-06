@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/xml/titanium_ui_vertical_nested_scrollview.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/xml/titanium_ui_vertical_nested_scrollview.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/xml/titanium_ui_horizontal_nested_scrollview.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/xml/titanium_ui_horizontal_nested_scrollview.xml"
+    }
+]

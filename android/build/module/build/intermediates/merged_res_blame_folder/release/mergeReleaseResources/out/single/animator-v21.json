@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/animator-v21/m3_appbar_state_list_animator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/animator-v21/m3_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/animator-v21/design_appbar_state_list_animator.xml"
+    }
+]

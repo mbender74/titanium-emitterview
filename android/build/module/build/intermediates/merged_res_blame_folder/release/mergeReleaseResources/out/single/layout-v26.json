@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v26/mtrl_calendar_month.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/layout-v26/mtrl_calendar_month.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v26/abc_screen_toolbar.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/layout-v26/abc_screen_toolbar.xml"
+    }
+]

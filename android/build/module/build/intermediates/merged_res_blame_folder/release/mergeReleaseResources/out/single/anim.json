@@ -1,0 +1,138 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/mtrl_card_lowers_interpolator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/mtrl_card_lowers_interpolator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_fade_out.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_slide_out_bottom.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/linear_indeterminate_line1_head_interpolator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/linear_indeterminate_line1_head_interpolator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_tooltip_exit.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/design_snackbar_out.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_slide_in_bottom.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_popup_exit.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_checked_icon_null_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_checked_icon_null_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/linear_indeterminate_line2_tail_interpolator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/linear_indeterminate_line2_tail_interpolator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_tooltip_enter.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/anim_image.xml",
+        "source": "de.marcbender.emitterview.module-android-51:/anim/anim_image.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/m3_motion_fade_enter.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/m3_motion_fade_enter.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_fade_in.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/linear_indeterminate_line2_head_interpolator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/linear_indeterminate_line2_head_interpolator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/design_snackbar_in.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_popup_enter.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_slide_in_top.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/abc_slide_out_top.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/linear_indeterminate_line1_tail_interpolator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/linear_indeterminate_line1_tail_interpolator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/m3_motion_fade_exit.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/anim/m3_motion_fade_exit.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml"
+    }
+]

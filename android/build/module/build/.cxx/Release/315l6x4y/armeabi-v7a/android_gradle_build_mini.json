@@ -1,0 +1,65 @@
+{
+  "buildFiles": [
+    "/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/src/main/jni/Android.mk"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/marcbender/Library/Android/sdk/ndk/28.1.13356709/ndk-build",
+      "NDK_PROJECT_PATH\u003dnull",
+      "APP_BUILD_SCRIPT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+      "APP_ABI\u003darmeabi-v7a",
+      "NDK_ALL_ABIS\u003darmeabi-v7a",
+      "NDK_DEBUG\u003d0",
+      "APP_PLATFORM\u003dandroid-24",
+      "NDK_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/obj",
+      "NDK_LIBS_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/lib",
+      "APP_CPPFLAGS+\u003d-std\u003dc++14",
+      "APP_STL:\u003dc++_shared",
+      "--output-sync\u003dnone",
+      "APP_LD\u003ddeprecated",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/marcbender/Library/Android/sdk/ndk/28.1.13356709/ndk-build",
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+    "APP_ABI\u003darmeabi-v7a",
+    "NDK_ALL_ABIS\u003darmeabi-v7a",
+    "NDK_DEBUG\u003d0",
+    "APP_PLATFORM\u003dandroid-24",
+    "NDK_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/obj",
+    "NDK_LIBS_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/lib",
+    "APP_CPPFLAGS+\u003d-std\u003dc++14",
+    "APP_STL:\u003dc++_shared",
+    "-j14",
+    "--output-sync\u003dnone",
+    "APP_LD\u003ddeprecated",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "de.marcbender.emitterview-release-armeabi-v7a": {
+      "artifactName": "de.marcbender.emitterview",
+      "buildCommandComponents": [
+        "/Users/marcbender/Library/Android/sdk/ndk/28.1.13356709/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/src/main/jni/Android.mk",
+        "APP_ABI\u003darmeabi-v7a",
+        "NDK_ALL_ABIS\u003darmeabi-v7a",
+        "NDK_DEBUG\u003d0",
+        "APP_PLATFORM\u003dandroid-24",
+        "NDK_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/obj",
+        "NDK_LIBS_OUT\u003d/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/lib",
+        "APP_CPPFLAGS+\u003d-std\u003dc++14",
+        "APP_STL:\u003dc++_shared",
+        "-j14",
+        "--output-sync\u003dnone",
+        "APP_LD\u003ddeprecated",
+        "/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/obj/local/armeabi-v7a/libde.marcbender.emitterview.so"
+      ],
+      "abi": "armeabi-v7a",
+      "output": "/Users/marcbender/Titanium-Modules/titanium-emitterview/android/build/module/build/intermediates/cxx/Release/315l6x4y/obj/local/armeabi-v7a/libde.marcbender.emitterview.so",
+      "runtimeFiles": []
+    }
+  }
+}

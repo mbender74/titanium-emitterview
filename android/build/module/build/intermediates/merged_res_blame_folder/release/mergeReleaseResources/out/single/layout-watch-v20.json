@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    }
+]

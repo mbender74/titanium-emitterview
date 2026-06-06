@@ -1,0 +1,582 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_selectall_mtrl_alpha.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_selectall_mtrl_alpha.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_indeterminate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_indeterminate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_checkcircle.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_checkcircle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/notification_bg_low.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_seekbar_thumb_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_track_decoration.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_track_decoration.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_text_cursor_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_splash_empty.png",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_splash_empty.png"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_avd_show_password.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_avd_show_password.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_unchecked_indeterminate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_unchecked_indeterminate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_disclosure.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_disclosure.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_checkbox_unchecked_to_checked_mtrl_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_checkbox_unchecked_to_checked_mtrl_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_m3_chip_check.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_m3_chip_check.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_track.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_track.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/design_snackbar_background.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/design_snackbar_background.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_list_selector_holo_light.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_fastscroll_line_drawable.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_fastscroll_line_drawable.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_mtrl_chip_checked_circle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_mtrl_chip_checked_circle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/tooltip_frame_light.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/tooltip_frame_light.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_check_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_calendar_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_calendar_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/design_password_eye.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/design_password_eye.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_voice_search_api_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/test_level_drawable.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/test_level_drawable.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_borderless_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_mtrl_chip_checked_black.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_mtrl_chip_checked_black.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_unchecked_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_unchecked_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_checkbox_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_checkbox_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/design_ic_visibility.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/design_ic_visibility.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_fastscroll_thumb_drawable.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_fastscroll_thumb_drawable.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_answer.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_answer.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_arrow_drop_down.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_arrow_drop_down.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_checked_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_checked_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/selection_band_overlay.xml",
+        "source": "de.marcbender.emitterview.module-recyclerview-selection-1.1.0-29:/drawable/selection_band_overlay.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_share_mtrl_alpha.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_share_mtrl_alpha.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_popupmenu_background_overlay.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_popupmenu_background_overlay.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_tab_indicator_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/design_ic_visibility_off.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_password_eye.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_password_eye.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_unchecked_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_unchecked_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_bottomsheet_drag_handle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_bottomsheet_drag_handle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_error.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_error.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_avd_hide_password.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_avd_hide_password.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_checked_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_checked_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/avd_show_password.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/avd_show_password.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_mtrl_checked_circle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_mtrl_checked_circle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_arrow_back_black_24.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_arrow_back_black_24.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_cab_background_top_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/notification_tile_bg.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_fastscroll_thumb.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_fastscroll_thumb.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_tabs_default_indicator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_tabs_default_indicator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_answer_video_low.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_answer_video_low.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_checkbox_checked_mtrl.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_checkbox_checked_mtrl.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_star_half_black_48dp.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_star_half_black_48dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_keyboard_arrow_left_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_keyboard_arrow_left_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_popupmenu_background.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_popupmenu_background.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_edit_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_edit_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_clock_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_clock_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_radio_off_to_on_mtrl_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_radio_off_to_on_mtrl_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_clear_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_decline.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_decline.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/avd_hide_password.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/avd_hide_password.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_answer_low.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_answer_low.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_m3_chip_checked_circle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_m3_chip_checked_circle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_pressed_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_pressed_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ratingbar_indicator_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_checkbox_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_checkbox_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_check_material_anim.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_check_material_anim.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_checked_pressed.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_checked_pressed.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_radio_off_mtrl.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_radio_off_mtrl.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_fastscroll_line.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_fastscroll_line.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_dialog_background.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_dialog_background.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_search_black_24.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_search_black_24.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_unchecked_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_unchecked_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/notification_icon_background.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_mtrl_chip_close_circle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_mtrl_chip_close_circle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_copy_mtrl_am_alpha.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_copy_mtrl_am_alpha.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_item_background_holo_light.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_indeterminate_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_indeterminate_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_cut_mtrl_alpha.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_cut_mtrl_alpha.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_answer_video.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_answer_video.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_ab_back_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_keyboard_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_keyboard_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_more.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_more.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ratingbar_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_radio_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_pressed.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_pressed.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_clear_black_24.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_clear_black_24.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_checked_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_checked_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/design_fab_background.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_go_search_api_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_check_mark.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_check_mark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_radio_material_anim.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_radio_material_anim.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_overflow_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/navigation_empty_icon.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_item_background_holo_dark.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_delete.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_delete.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ratingbar_small_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_menu_arrow_down_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_menu_arrow_down_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_bottom_sheet_drag_handle.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_bottom_sheet_drag_handle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_star_black_48dp.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_star_black_48dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/tooltip_frame_dark.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_cancel.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_cancel.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_checkbox_unchecked_mtrl.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_checkbox_unchecked_mtrl.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_radio_on_mtrl.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_radio_on_mtrl.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_tabs_rounded_line_indicator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_tabs_rounded_line_indicator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_list_selector_holo_dark.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_menu_paste_mtrl_am_alpha.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_menu_paste_mtrl_am_alpha.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_circle.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_circle.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_seekbar_track_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_pressed_checked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_pressed_checked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/notification_bg.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_action_back.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/ic_action_back.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_call_decline_low.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/drawable/ic_call_decline_low.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_checked_indeterminate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_checked_indeterminate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/m3_tabs_line_indicator.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/m3_tabs_line_indicator.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_ic_arrow_drop_up.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_ic_arrow_drop_up.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_switch_thumb_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_switch_thumb_unchecked_pressed.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_switch_thumb_unchecked_pressed.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_cab_background_internal_bg.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_checkbox_button_icon_indeterminate_unchecked.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_checkbox_button_icon_indeterminate_unchecked.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/mtrl_dropdown_arrow.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/mtrl_dropdown_arrow.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_menu_arrow_up_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_menu_arrow_up_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_search_api_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_clear_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_clear_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/indeterminate_static.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/indeterminate_static.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_textfield_search_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_seekbar_tick_mark_material.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/material_ic_keyboard_arrow_right_black_24dp.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/material_ic_keyboard_arrow_right_black_24dp.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/btn_radio_on_to_off_mtrl_animation.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-1.7.0-39:/drawable/btn_radio_on_to_off_mtrl_animation.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_drag.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_drag.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/titanium_icon_checkmark.xml",
+        "source": "de.marcbender.emitterview.module-titanium-13.2.0-30:/drawable/titanium_icon_checkmark.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/abc_vector_test.xml",
+        "source": "de.marcbender.emitterview.module-appcompat-resources-1.7.0-10:/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/drawable/ic_m3_chip_close.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/drawable/ic_m3_chip_close.xml"
+    }
+]

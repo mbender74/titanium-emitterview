@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v21/notification_action.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v21/notification_template_custom_big.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v21/notification_template_icon_group.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/layout-v21/notification_action_tombstone.xml",
+        "source": "de.marcbender.emitterview.module-core-1.16.0-24:/layout-v21/notification_action_tombstone.xml"
+    }
+]

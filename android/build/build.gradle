@@ -1,16 +1,23 @@
-
 buildscript {
-	ext.kotlin_version = '1.5.21'
+	ext.kotlin_version = '2.3.0'
 
 	repositories {
 		google()
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:7.0.1'
-		classpath 'com.google.gms:google-services:4.3.10'
+		classpath 'com.android.tools.build:gradle:8.13.2'
+		classpath 'com.google.gms:google-services:4.4.4'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+		
 	}
+}
+
+// Load the module developer's optional "root.build.gradle" file from "<module>/android" directory.
+// This Gradle file is expected to provide the module's "dependencies".
+def moduleRootBuildGradlePath = "${projectDir}/../root.build.gradle"
+if (file(moduleRootBuildGradlePath).exists()) {
+	apply from: moduleRootBuildGradlePath
 }
 
 allprojects {
@@ -21,6 +28,6 @@ allprojects {
 	project.apply from: "${rootDir}/ti.constants.gradle"
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
 	delete rootProject.buildDir
 }

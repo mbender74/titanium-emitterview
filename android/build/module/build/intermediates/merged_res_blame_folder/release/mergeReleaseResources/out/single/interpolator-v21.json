@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/mtrl_linear_out_slow_in.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/mtrl_linear_out_slow_in.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/mtrl_fast_out_linear_in.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/mtrl_fast_out_linear_in.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_emphasized_decelerate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_emphasized_decelerate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_standard.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_standard.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_linear.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_linear.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_emphasized.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_emphasized.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_emphasized_accelerate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_emphasized_accelerate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_standard_accelerate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_standard_accelerate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/m3_sys_motion_easing_standard_decelerate.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/m3_sys_motion_easing_standard_decelerate.xml"
+    },
+    {
+        "merged": "de.marcbender.emitterview.module-release-49:/interpolator-v21/mtrl_fast_out_slow_in.xml",
+        "source": "de.marcbender.emitterview.module-material-1.12.0-25:/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    }
+]
