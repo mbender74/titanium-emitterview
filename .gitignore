@@ -7,6 +7,9 @@
 */manifest
 */.ti
 *.xcconfig
+
+# Task tree
+.pi/task_tree
 Carthage/
 ti.calendar-iphone-*.zip
 /Cartfile.resolved
