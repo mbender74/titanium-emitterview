@@ -1,0 +1,8 @@
+{"version":1}
+{"index":"1","parentIndex":"root","title":"Android prüfen","description":"in_progress","completed":false,"deleted":false}
+{"index":"2","parentIndex":"root","title":"Module Assets prüfen","description":"in_progress","completed":false,"deleted":false}
+{"index":"3","parentIndex":"root","title":"Animation Keyframe-Optimierung","description":"in_progress","completed":false,"deleted":false}
+{"index":"4","parentIndex":"root","title":"Layer contentsScale fix","description":"in_progress","completed":false,"deleted":false}
+{"index":"5","parentIndex":"root","title":"README aktualisieren","description":"Neue direction Property und API-Änderungen dokumentieren","completed":false,"deleted":false}
+{"index":"6","parentIndex":"root","title":"Example App prüfen","description":"app.js nutzt alte API, muss mit neuen Properties aktualisiert werden","completed":false,"deleted":false}
+{"index":"7","parentIndex":"root","title":"Documentation schreiben","description":"documentation/index.md ist noch TODO-Platzhalter","completed":false,"deleted":false}

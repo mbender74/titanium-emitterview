@@ -153,7 +153,7 @@ public class ViewProxy extends TiViewProxy
 					mEmitterView.maxAmplitude(TiConvert.toInt(d.get("maxAmplitude")));
 			}
 			else {
-					mEmitterView.maxAmplitude(TiConvert.toInt(2));
+					mEmitterView.maxAmplitude(14);
 			}
 
 
@@ -161,7 +161,7 @@ public class ViewProxy extends TiViewProxy
 					mEmitterView.amplitude(TiConvert.toInt(d.get("amplitude")));
 			}
 			else {
-					mEmitterView.amplitude(TiConvert.toInt(2));
+					mEmitterView.amplitude(8);
 			}
 
 
@@ -169,7 +169,7 @@ public class ViewProxy extends TiViewProxy
 					mEmitterView.duration(TiConvert.toFloat(d.get("duration")));
 			}
 			else {
-					mEmitterView.duration(TiConvert.toFloat(1.0));
+					mEmitterView.duration(TiConvert.toFloat(3.0f));
 			}
 
 
@@ -177,7 +177,7 @@ public class ViewProxy extends TiViewProxy
 					mEmitterView.maxDuration(TiConvert.toFloat(d.get("maxDuration")));
 			}
 			else {
-					mEmitterView.maxDuration(TiConvert.toFloat(1.0));
+					mEmitterView.maxDuration(TiConvert.toFloat(3.5f));
 			}
 
 
@@ -341,7 +341,7 @@ public class ViewProxy extends TiViewProxy
 		else {
 	 		Random r = new Random();
 
-	        idx = (r.nextInt(imageReferences.size()))-1;			
+	        idx = r.nextInt(imageReferences.size());			
 		}
 
 	 	Bitmap b = imageReferences.get(idx).getBitmap(false,true);

@@ -136,7 +136,7 @@
     
     CALayer *layer = [[CALayer alloc] init];
     layer.contents = (__bridge id _Nullable)(image.CGImage);
-    layer.contentsScale = self.window.screen.scale;
+    layer.contentsScale = self.window ? self.window.screen.scale : self.traitCollection.displayScale;
     layer.opacity = 1.0f;
     layer.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     
@@ -171,6 +171,7 @@
     }];
     
     // Scale animation: 0.3x → 1.0x
+    // Small movements: use default frame rate range for power savings on ProMotion displays
     CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     CATransform3D startingScale = CATransform3DScale(layer.transform, 0.3f, 0.3f, 1.0f);
     CATransform3D fullScale = CATransform3DIdentity;
