@@ -1,213 +1,251 @@
 #import "DeMarcbenderEmitterviewView.h"
-#import <CommonCrypto/CommonDigest.h>
 #import <TitaniumKit/ImageLoader.h>
-#import <TitaniumKit/OperationQueue.h>
 #import <TitaniumKit/TiBase.h>
 #import <TitaniumKit/TiBlob.h>
 #import <TitaniumKit/TiFile.h>
 #import <TitaniumKit/TiProxy.h>
 #import <TitaniumKit/TiUtils.h>
 #import <TitaniumKit/TiViewProxy.h>
-#import <TitaniumKit/TiUIViewProxy.h>
-#import <TitaniumKit/UIImage+Resize.h>
 
+@interface DeMarcbenderEmitterviewView () {
+    HeartEmitterView *emitterView;
+    UIView *buttonView;
+    NSMutableArray *imagesList;
+    NSCache *imageCache;
+}
+
+@end
 
 @implementation DeMarcbenderEmitterviewView
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
-    //NSLog(@"[SVGVIEW LIFECYCLE EVENT] willMoveToSuperview");
-}
+#pragma mark - Lifecycle
 
-- (void)initializeState
-{
-    // This method is called right after allocating the view and
-    // is useful for initializing anything specific to the view
+- (void)initializeState {
     imagesList = [NSMutableArray array];
-    // Creates and keeps a reference to the view upon initialization
-    emitterView = [[HeartEmitterView alloc] initWithFrame:[self bounds]];
-    emitterView.maxAmplitude = 4;
-    emitterView.amplitude = 16;
-    emitterView.duration = 4;
-    emitterView.maxDuration = 4;
-    emitterView.layer.masksToBounds = NO;
-    emitterView.tapPoint = CGPointZero;
-    emitterView.userInteractionEnabled = NO;
-    emitterView.buttonView = nil;
+    imageCache = [[NSCache alloc] init];
+    imageCache.countLimit = 50;
     
-    self.thisEmitterView = emitterView;
+    // Create and configure the emitter view
+    emitterView = [[HeartEmitterView alloc] initWithFrame:self.bounds];
+    emitterView.layer.masksToBounds = NO;
+    emitterView.userInteractionEnabled = NO;
+    
     [self addSubview:emitterView];
     self.clipsToBounds = NO;
     self.layer.masksToBounds = NO;
     emitterView.clipsToBounds = NO;
     
-    [self.proxy replaceValue:@"true" forKey:@"bubbleParent" notification:YES];
-    [self.proxy replaceValue:@"false" forKey:@"touchEnabled" notification:YES];
+    // Configure proxy properties
+    [self.proxy replaceValue:@(YES) forKey:@"bubbleParent" notification:YES];
+    [self.proxy replaceValue:@(NO) forKey:@"touchEnabled" notification:YES];
     
     [super initializeState];
 }
 
-- (void)configurationSet
-{
+- (void)configurationSet {
     [super configurationSet];
 }
 
-- (void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
-{
-    boundsWidth = bounds.size.width;
-    boundsHeight = bounds.size.height;
-
-    if (emitterView != nil) {
-        [TiUtils setView:emitterView positionRect:bounds];
-        emitterView.clipsToBounds = NO;
+- (void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds {
+    if (emitterView) {
+        emitterView.frame = bounds;
     }
-
 }
 
-- (UIImage *)rotatedImage:(UIImage *)originalImage
-{
- //If autorotate is set to false and the image orientation is not UIImageOrientationUp create new image
- if (![TiUtils boolValue:[[self proxy] valueForUndefinedKey:@"autorotate"] def:YES] && (originalImage.imageOrientation != UIImageOrientationUp)) {
-   UIImage *theImage = [UIImage imageWithCGImage:[originalImage CGImage] scale:[originalImage scale] orientation:UIImageOrientationUp];
-   return theImage;
- } else {
-   return originalImage;
- }
-}
-
-- (UIImage *)convertToUIImage:(id)arg
-{
- UIImage *image = nil;
-
- if ([arg isKindOfClass:[TiBlob class]]) {
-   TiBlob *blob = (TiBlob *)arg;
-   image = [blob image];
- } else if ([arg isKindOfClass:[TiFile class]]) {
-   TiFile *file = (TiFile *)arg;
-   NSURL *fileUrl = [NSURL fileURLWithPath:[file path]];
-   image = [[ImageLoader sharedLoader] loadImmediateImage:fileUrl];
- } else if ([arg isKindOfClass:[UIImage class]]) {
-   // called within this class
-   image = (UIImage *)arg;
- }
- return image;
-}
-
-
-- (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max {
-    return (int) min + arc4random_uniform((int)max - (int)min + 1);
-}
-
+#pragma mark - Property Setters
 
 - (void)setMaxAmplitude_:(id)args {
-    emitterView.maxAmplitude = [TiUtils floatValue:args];
+    if (args) {
+        CGFloat value = [TiUtils floatValue:args];
+        if (value > 0) {
+            emitterView.maxAmplitude = value;
+        }
+    }
 }
 
 - (void)setAmplitude_:(id)args {
-    emitterView.amplitude = [TiUtils floatValue:args];
+    if (args) {
+        CGFloat value = [TiUtils floatValue:args];
+        if (value > 0) {
+            emitterView.amplitude = value;
+        }
+    }
 }
+
 - (void)setDuration_:(id)args {
-    emitterView.duration = [TiUtils floatValue:args];
+    if (args) {
+        CGFloat value = [TiUtils floatValue:args];
+        if (value > 0.1) {
+            emitterView.duration = value;
+        }
+    }
 }
+
 - (void)setMaxDuration_:(id)args {
-    emitterView.maxDuration = [TiUtils floatValue:args];
+    if (args) {
+        CGFloat value = [TiUtils floatValue:args];
+        if (value > 0.1) {
+            emitterView.maxDuration = value;
+        }
+    }
 }
-
-
-
 
 - (void)setParticleImages_:(id)args {
-    
-    NSMutableArray *argsList = args;
-
-    if (imagesList.count > 0){
-        imagesList = [NSMutableArray array];
+    if (!args || ![args count]) {
+        return;
     }
     
-
-    for (id imageObject in argsList){
-        
-        NSURL *imageURL = [[self proxy] sanitizeURL:imageObject];
-
-        if (![imageURL isKindOfClass:[NSURL class]]) {
-            if ([imageObject isKindOfClass:[TiBlob class]]) {
-              TiBlob *blob = (TiBlob *)imageObject;
-                [imagesList addObject:[blob image]];
-            } else if ([imageObject isKindOfClass:[TiFile class]]) {
-              TiFile *file = (TiFile *)imageObject;
-              NSURL *fileUrl = [NSURL fileURLWithPath:[file path]];
-                [imagesList addObject:[[ImageLoader sharedLoader] loadImmediateImage:fileUrl]];
-            }
+    // Safely copy the array to avoid mutation issues
+    NSArray *argsList = [args copy];
+    [imagesList setArray:[NSMutableArray array]];
+    
+    for (id imageObject in argsList) {
+        if (!imageObject) {
+            continue;
         }
-        else {
-            [imagesList addObject:[[ImageLoader sharedLoader] loadImmediateImage:imageURL]];
+        
+        UIImage *image = [self loadImage:imageObject];
+        if (image) {
+            [imagesList addObject:image];
         }
     }
 }
 
 - (void)setButtonViewToEmitFrom_:(id)args {
-    buttonView = [(TiViewProxy *)args view];
-    
-    if (buttonView != nil){
-        emitterView.buttonView = buttonView;
+    if (!args) {
+        return;
     }
     
-    UITapGestureRecognizer *singleFingerTap =
-      [[UITapGestureRecognizer alloc] initWithTarget:self
-                                              action:@selector(emitImageTouch:)];
-    [buttonView addGestureRecognizer:singleFingerTap];
+    buttonView = [(TiViewProxy *)args view];
+    
+    if (buttonView) {
+        emitterView.buttonView = buttonView;
+        
+        UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emitImageTouch:)];
+        [buttonView addGestureRecognizer:singleFingerTap];
+    }
 }
 
-#pragma Public APIs
+#pragma mark - Image Loading
 
+- (UIImage *)loadImage:(id)imageObject {
+    // Try cache first for URL/string objects
+    if ([imageObject isKindOfClass:[NSString class]]) {
+        NSString *key = (NSString *)imageObject;
+        UIImage *cachedImage = [imageCache objectForKey:key];
+        if (cachedImage) {
+            return cachedImage;
+        }
+        
+        UIImage *image = [[ImageLoader sharedLoader] loadImmediateImage:[NSURL URLWithString:key]];
+        if (image) {
+            [imageCache setObject:image forKey:key];
+        }
+        return image;
+    }
+    
+    // Handle URL objects
+    NSURL *imageURL = [imageObject isKindOfClass:[NSURL class]] ? imageObject : [[self.proxy sanitizeURL:imageObject] isKindOfClass:[NSURL class]] ? [self.proxy sanitizeURL:imageObject] : nil;
+    
+    if (imageURL) {
+        NSString *key = imageURL.absoluteString;
+        UIImage *cachedImage = [imageCache objectForKey:key];
+        if (cachedImage) {
+            return cachedImage;
+        }
+        
+        UIImage *image = [[ImageLoader sharedLoader] loadImmediateImage:imageURL];
+        if (image) {
+            [imageCache setObject:image forKey:key];
+        }
+        return image;
+    }
+    
+    // Handle TiBlob
+    if ([imageObject isKindOfClass:[TiBlob class]]) {
+        return [(TiBlob *)imageObject image];
+    }
+    
+    // Handle TiFile
+    if ([imageObject isKindOfClass:[TiFile class]]) {
+        TiFile *file = (TiFile *)imageObject;
+        NSURL *fileUrl = [NSURL fileURLWithPath:[file path]];
+        return [[ImageLoader sharedLoader] loadImmediateImage:fileUrl];
+    }
+    
+    return nil;
+}
+
+#pragma mark - Touch Handling
 
 - (void)emitImageTouch:(UITapGestureRecognizer *)recognizer {
-    emitterView.tapPoint = [recognizer locationInView:self.superview];
+    if (self.superview) {
+        emitterView.tapPoint = [recognizer locationInView:self.superview];
+    }
     [self emitHeart:nil];
 }
 
+#pragma mark - Public APIs
 
 - (void)emitHeart:(id)args {
     ENSURE_SINGLE_ARG_OR_NIL(args, NSDictionary);
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-    if([args valueForKey:@"sourceView"]){
-            TiViewProxy *sourceViewProxy = [args valueForKey:@"sourceView"];
-            self->emitterView.buttonView = (TiUIView*)sourceViewProxy.view;
+    
+    if (!args) {
+        args = @{};
+    }
+    
+    // Handle sourceView
+    if ([args valueForKey:@"sourceView"]) {
+        TiViewProxy *sourceViewProxy = [args valueForKey:@"sourceView"];
+        if (sourceViewProxy.view) {
+            emitterView.buttonView = sourceViewProxy.view;
             
             CGRect pointRect = [sourceViewProxy.view convertRect:sourceViewProxy.view.bounds toView:self.superview];
-            self->emitterView.tapPoint = CGPointMake(pointRect.origin.x + ceilf(sourceViewProxy.view.bounds.size.width/2),pointRect.origin.y);
+            emitterView.tapPoint = CGPointMake(pointRect.origin.x + ceilf(sourceViewProxy.view.bounds.size.width / 2.0f),
+                                               pointRect.origin.y);
         }
+    }
     
-
-        if (self->imagesList.count > 0){
-            
-            if([args valueForKey:@"id"]){
-                int imageIndex = [TiUtils intValue:[args valueForKey:@"id"]]-1;
-                if (imageIndex < self->imagesList.count){
-                    [self.thisEmitterView emitImage:[self->imagesList objectAtIndex:imageIndex]];
-                }
-            }
-            else {
-                if([args valueForKey:@"startId"] && [args valueForKey:@"endId"]){
-                    int startIndex = [TiUtils intValue:[args valueForKey:@"startId"]]-1;
-                    int endIndex = [TiUtils intValue:[args valueForKey:@"endId"]]-1;
-                    if (startIndex < self->imagesList.count && endIndex < self->imagesList.count){
-                        [self.thisEmitterView emitImage:[self->imagesList objectAtIndex:[self randomNumberBetween:startIndex maxNumber:endIndex]]];
-                    }
-                }
-                else {
-                    [self.thisEmitterView emitImage:[self->imagesList objectAtIndex:[self randomNumberBetween:0 maxNumber:self->imagesList.count-1]]];
-                }
-            }
-        }
-    });
+    // Ensure we're on the main thread for layer operations
+    if (![NSThread isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self emitImageFromArgs:args];
+        });
+        return;
+    }
+    
+    [self emitImageFromArgs:args];
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
-  return [super hitTest:point withEvent:event];
+- (void)emitImageFromArgs:(NSDictionary *)args {
+    if (imagesList.count == 0) {
+        return;
+    }
+    
+    NSUInteger imageIndex = [self calculateImageIndexFromArgs:args];
+    
+    if (imageIndex < imagesList.count) {
+        UIImage *image = imagesList[imageIndex];
+        [emitterView emitImage:image];
+    }
+}
+
+- (NSUInteger)calculateImageIndexFromArgs:(NSDictionary *)args {
+    if ([args valueForKey:@"id"]) {
+        int imageIndex = [TiUtils intValue:[args valueForKey:@"id"]] - 1;
+        return MAX(0, imageIndex);
+    }
+    
+    if ([args valueForKey:@"startId"] && [args valueForKey:@"endId"]) {
+        int startIndex = [TiUtils intValue:[args valueForKey:@"startId"]] - 1;
+        int endIndex = [TiUtils intValue:[args valueForKey:@"endId"]] - 1;
+        
+        if (startIndex < imagesList.count && endIndex < imagesList.count) {
+            return (NSUInteger)(startIndex + arc4random_uniform((uint32_t)(endIndex - startIndex + 1)));
+        }
+    }
+    
+    return arc4random_uniform((uint32_t)imagesList.count);
 }
 
 @end

@@ -1,16 +1,15 @@
 #import "TiUIView.h"
 #import "HeartEmitterView.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-@interface DeMarcbenderEmitterviewView: TiUIView {
+@interface DeMarcbenderEmitterviewView: TiUIView
 
-    HeartEmitterView *emitterView;
-    UIView *buttonView;
-    float boundsWidth;
-    float boundsHeight;
-    NSMutableArray *imagesList;
-}
-@property (weak, nonatomic) HeartEmitterView * thisEmitterView;
-#pragma Public APIs
+@property (nonatomic, strong, readonly) NSMutableArray<UIImage *> *imagesList;
+
+#pragma mark Public APIs
 - (void)emitHeart:(id)args;
+
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface HeartEmitterView : UIView
 
-@property (nonatomic, assign) NSInteger maxAmplitude;
+@property (nonatomic, assign) CGFloat maxAmplitude;
 
 @property (nonatomic, assign) CGPoint tapPoint;
 
-@property (nonatomic, assign) NSInteger amplitude;
+@property (nonatomic, assign) CGFloat amplitude;
 
 @property (nonatomic, assign) CFTimeInterval duration;
 
@@ -24,11 +26,11 @@
 
 @property (nonatomic, assign) NSInteger currentCount;
 
-@property (nonatomic, strong) NSMutableArray * unusedLayers;
-
 @property (nonatomic, assign) UIView *buttonView;
 
 
 - (void)emitImage:(UIImage *)image;
 
 @end
+
+NS_ASSUME_NONNULL_END
