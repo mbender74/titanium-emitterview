@@ -1,5 +1,5 @@
 {"version":1}
-{"index":"1","parentIndex":"root","title":"HeartEmitterView.java analysieren","description":"in_progress","completed":false,"deleted":false}
-{"index":"2","parentIndex":"root","title":"ViewProxy.java analysieren","description":"in_progress","completed":false,"deleted":false}
-{"index":"3","parentIndex":"root","title":"Android-Spezifika optimieren","description":"in_progress","completed":false,"deleted":false}
-{"index":"4","parentIndex":"root","title":"Parität mit iOS herstellen","description":"in_progress","completed":false,"deleted":false}
+{"index":"1","parentIndex":"root","title":"HeartEmitterView.java analysieren","description":"completed","completed":false,"deleted":false}
+{"index":"2","parentIndex":"root","title":"ViewProxy.java analysieren","description":"completed","completed":false,"deleted":false}
+{"index":"3","parentIndex":"root","title":"Android-Spezifika optimieren","description":"completed","completed":false,"deleted":false}
+{"index":"4","parentIndex":"root","title":"Parität mit iOS herstellen","description":"completed","completed":false,"deleted":false}
