@@ -1,6 +1,7 @@
-# Titanium Emitter View Module
+# Titanium Mobile iOS and Android Emitter View Module
+(https://titaniumsdk.com/)
 
-A cross-platform Appcelerator Titanium module for creating beautiful particle emission effects.
+A cross-platform Titanium Mobile SDK module for creating beautiful particle emission effects.
 
 This module is adapted from [RainConfetti](https://github.com/linghugoogle/RainConfetti) by [linghugoogle](https://github.com/linghugoogle) — a Swift-based particle emitter for iOS. The core animation architecture, shape generation algorithms, and emission physics have been ported to native Objective-C (iOS) and Java (Android), then wrapped as a Titanium module for cross-platform use.
 
