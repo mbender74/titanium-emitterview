@@ -91,6 +91,11 @@ Local<FunctionTemplate> ViewProxy::getProxyTemplate(v8::Isolate* isolate)
 
 	// Method bindings --------------------------------------------------------
 	titanium::SetProtoMethod(isolate, t, "emitImage", ViewProxy::emitImage);
+	titanium::SetProtoMethod(isolate, t, "resume", ViewProxy::resume);
+	titanium::SetProtoMethod(isolate, t, "stop", ViewProxy::stop);
+	titanium::SetProtoMethod(isolate, t, "start", ViewProxy::start);
+	titanium::SetProtoMethod(isolate, t, "isActive", ViewProxy::isActive);
+	titanium::SetProtoMethod(isolate, t, "pause", ViewProxy::pause);
 
 	Local<ObjectTemplate> prototypeTemplate = t->PrototypeTemplate();
 	Local<ObjectTemplate> instanceTemplate = t->InstanceTemplate();
@@ -100,6 +105,45 @@ Local<FunctionTemplate> ViewProxy::getProxyTemplate(v8::Isolate* isolate)
 		titanium::Proxy::setIndexedProperty);
 
 	// Constants --------------------------------------------------------------
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		LOGE(TAG, "Failed to get environment in ViewProxy");
+		//return;
+	}
+
+
+			DEFINE_INT_CONSTANT(isolate, t, "DIRECTION_RIGHT", 3);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "DIRECTION_RIGHT", 3);
+
+			DEFINE_INT_CONSTANT(isolate, t, "PARTICLE_TEXT", 5);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "PARTICLE_TEXT", 5);
+
+			DEFINE_INT_CONSTANT(isolate, t, "DIRECTION_DOWN", 1);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "DIRECTION_DOWN", 1);
+
+			DEFINE_INT_CONSTANT(isolate, t, "PARTICLE_TRIANGLE", 2);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "PARTICLE_TRIANGLE", 2);
+
+			DEFINE_INT_CONSTANT(isolate, t, "PARTICLE_STAR", 3);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "PARTICLE_STAR", 3);
+
+			DEFINE_INT_CONSTANT(isolate, t, "PARTICLE_CONFETTI", 1);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "PARTICLE_CONFETTI", 1);
+
+			DEFINE_INT_CONSTANT(isolate, t, "PARTICLE_DIAMOND", 4);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "PARTICLE_DIAMOND", 4);
+
+			DEFINE_INT_CONSTANT(isolate, t, "DIRECTION_LEFT", 2);
+			// TODO: deprecate in 7.0.0
+			DEFINE_INT_CONSTANT(isolate, prototypeTemplate, "DIRECTION_LEFT", 2);
+
 
 	// Dynamic properties -----------------------------------------------------
 
@@ -198,6 +242,370 @@ void ViewProxy::emitImage(const FunctionCallbackInfo<Value>& args)
 			if (isNew_0) {
 				env->DeleteLocalRef(jArguments[0].l);
 			}
+
+
+	if (env->ExceptionCheck()) {
+		titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+	}
+
+
+
+
+	args.GetReturnValue().Set(v8::Undefined(isolate));
+
+}
+void ViewProxy::resume(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "resume()");
+	Isolate* isolate = args.GetIsolate();
+	Local<Context> context = isolate->GetCurrentContext();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ViewProxy::javaClass, "resume", "()V");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'resume' with signature '()V'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+	if (holder.IsEmpty() || holder->IsNull()) {
+		if (!moduleInstance.IsEmpty()) {
+			holder = moduleInstance.Get(isolate);
+			if (holder.IsEmpty() || holder->IsNull()) {
+				LOGE(TAG, "Couldn't obtain argument holder");
+				args.GetReturnValue().Set(v8::Undefined(isolate));
+				return;
+			}
+		} else {
+			LOGE(TAG, "Couldn't obtain argument holder");
+			args.GetReturnValue().Set(v8::Undefined(isolate));
+			return;
+		}
+	}
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+	if (!proxy) {
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
+	}
+
+	jvalue* jArguments = 0;
+
+
+	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
+	env->CallVoidMethodA(javaProxy, methodID, jArguments);
+
+	proxy->unreferenceJavaObject(javaProxy);
+
+
+
+	if (env->ExceptionCheck()) {
+		titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+	}
+
+
+
+
+	args.GetReturnValue().Set(v8::Undefined(isolate));
+
+}
+void ViewProxy::stop(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "stop()");
+	Isolate* isolate = args.GetIsolate();
+	Local<Context> context = isolate->GetCurrentContext();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ViewProxy::javaClass, "stop", "()V");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'stop' with signature '()V'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+	if (holder.IsEmpty() || holder->IsNull()) {
+		if (!moduleInstance.IsEmpty()) {
+			holder = moduleInstance.Get(isolate);
+			if (holder.IsEmpty() || holder->IsNull()) {
+				LOGE(TAG, "Couldn't obtain argument holder");
+				args.GetReturnValue().Set(v8::Undefined(isolate));
+				return;
+			}
+		} else {
+			LOGE(TAG, "Couldn't obtain argument holder");
+			args.GetReturnValue().Set(v8::Undefined(isolate));
+			return;
+		}
+	}
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+	if (!proxy) {
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
+	}
+
+	jvalue* jArguments = 0;
+
+
+	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
+	env->CallVoidMethodA(javaProxy, methodID, jArguments);
+
+	proxy->unreferenceJavaObject(javaProxy);
+
+
+
+	if (env->ExceptionCheck()) {
+		titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+	}
+
+
+
+
+	args.GetReturnValue().Set(v8::Undefined(isolate));
+
+}
+void ViewProxy::start(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "start()");
+	Isolate* isolate = args.GetIsolate();
+	Local<Context> context = isolate->GetCurrentContext();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ViewProxy::javaClass, "start", "()V");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'start' with signature '()V'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+	if (holder.IsEmpty() || holder->IsNull()) {
+		if (!moduleInstance.IsEmpty()) {
+			holder = moduleInstance.Get(isolate);
+			if (holder.IsEmpty() || holder->IsNull()) {
+				LOGE(TAG, "Couldn't obtain argument holder");
+				args.GetReturnValue().Set(v8::Undefined(isolate));
+				return;
+			}
+		} else {
+			LOGE(TAG, "Couldn't obtain argument holder");
+			args.GetReturnValue().Set(v8::Undefined(isolate));
+			return;
+		}
+	}
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+	if (!proxy) {
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
+	}
+
+	jvalue* jArguments = 0;
+
+
+	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
+	env->CallVoidMethodA(javaProxy, methodID, jArguments);
+
+	proxy->unreferenceJavaObject(javaProxy);
+
+
+
+	if (env->ExceptionCheck()) {
+		titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+	}
+
+
+
+
+	args.GetReturnValue().Set(v8::Undefined(isolate));
+
+}
+void ViewProxy::isActive(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "isActive()");
+	Isolate* isolate = args.GetIsolate();
+	Local<Context> context = isolate->GetCurrentContext();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ViewProxy::javaClass, "isActive", "()Z");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'isActive' with signature '()Z'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+	if (holder.IsEmpty() || holder->IsNull()) {
+		if (!moduleInstance.IsEmpty()) {
+			holder = moduleInstance.Get(isolate);
+			if (holder.IsEmpty() || holder->IsNull()) {
+				LOGE(TAG, "Couldn't obtain argument holder");
+				args.GetReturnValue().Set(v8::Undefined(isolate));
+				return;
+			}
+		} else {
+			LOGE(TAG, "Couldn't obtain argument holder");
+			args.GetReturnValue().Set(v8::Undefined(isolate));
+			return;
+		}
+	}
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+	if (!proxy) {
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
+	}
+
+	jvalue* jArguments = 0;
+
+
+	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
+	jboolean jResult = (jboolean)env->CallBooleanMethodA(javaProxy, methodID, jArguments);
+
+
+	proxy->unreferenceJavaObject(javaProxy);
+
+
+
+	if (env->ExceptionCheck()) {
+		Local<Value> jsException = titanium::JSException::fromJavaException(isolate);
+		env->ExceptionClear();
+		return;
+	}
+
+
+	Local<Boolean> v8Result = titanium::TypeConverter::javaBooleanToJsBoolean(isolate, env, jResult);
+
+
+
+	args.GetReturnValue().Set(v8Result);
+
+}
+void ViewProxy::pause(const FunctionCallbackInfo<Value>& args)
+{
+	LOGD(TAG, "pause()");
+	Isolate* isolate = args.GetIsolate();
+	Local<Context> context = isolate->GetCurrentContext();
+	HandleScope scope(isolate);
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		titanium::JSException::GetJNIEnvironmentError(isolate);
+		return;
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ViewProxy::javaClass, "pause", "()V");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'pause' with signature '()V'";
+			LOGE(TAG, error);
+				titanium::JSException::Error(isolate, error);
+				return;
+		}
+	}
+
+	Local<Object> holder = args.Holder();
+	if (!JavaObject::isJavaObject(holder)) {
+		holder = holder->FindInstanceInPrototypeChain(getProxyTemplate(isolate));
+	}
+	if (holder.IsEmpty() || holder->IsNull()) {
+		if (!moduleInstance.IsEmpty()) {
+			holder = moduleInstance.Get(isolate);
+			if (holder.IsEmpty() || holder->IsNull()) {
+				LOGE(TAG, "Couldn't obtain argument holder");
+				args.GetReturnValue().Set(v8::Undefined(isolate));
+				return;
+			}
+		} else {
+			LOGE(TAG, "Couldn't obtain argument holder");
+			args.GetReturnValue().Set(v8::Undefined(isolate));
+			return;
+		}
+	}
+	titanium::Proxy* proxy = NativeObject::Unwrap<titanium::Proxy>(holder);
+	if (!proxy) {
+		args.GetReturnValue().Set(Undefined(isolate));
+		return;
+	}
+
+	jvalue* jArguments = 0;
+
+
+	jobject javaProxy = proxy->getJavaObject();
+	if (javaProxy == NULL) {
+		args.GetReturnValue().Set(v8::Undefined(isolate));
+		return;
+	}
+	env->CallVoidMethodA(javaProxy, methodID, jArguments);
+
+	proxy->unreferenceJavaObject(javaProxy);
+
 
 
 	if (env->ExceptionCheck()) {

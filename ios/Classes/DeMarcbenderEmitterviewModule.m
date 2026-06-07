@@ -156,6 +156,20 @@
 }
 
 
-#pragma Public APIs
+#pragma mark - Constants
+
+- (NSNumber *)PARTICLE_CUSTOM { return @(0); }
+- (NSNumber *)PARTICLE_CONFETTI { return @(1); }
+- (NSNumber *)PARTICLE_TRIANGLE { return @(2); }
+- (NSNumber *)PARTICLE_STAR { return @(3); }
+- (NSNumber *)PARTICLE_DIAMOND { return @(4); }
+- (NSNumber *)PARTICLE_TEXT { return @(5); }
+
+- (NSNumber *)DIRECTION_UP { return @(0); }
+- (NSNumber *)DIRECTION_DOWN { return @(1); }
+- (NSNumber *)DIRECTION_LEFT { return @(2); }
+- (NSNumber *)DIRECTION_RIGHT { return @(3); }
+
+#pragma mark - Public APIs
 
 @end

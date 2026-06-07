@@ -5,11 +5,6 @@
 
 - (id)init
 {
-    // This is the designated initializer method and will always be called
-    // when the view proxy is created.
-
-    //NSLog(@"[SVG VIEWPROXY LIFECYCLE EVENT] init");
-
     return [super init];
 }
 - (void)_destroy
@@ -79,10 +74,7 @@
 
 - (void)viewDidAttach
 {
-    // This method is called right after the view has attached to the proxy
-    _myView = (DeMarcbenderEmitterviewView*)[self view];
-
-    //NSLog(@"[SVG VIEWPROXY LIFECYCLE EVENT] viewDidAttach");
+    // View attached to proxy
 }
 
 - (void)viewDidDetach
@@ -101,8 +93,35 @@
 
 - (void)emitImage:(id)args
 {
-     [self->_myView emitHeart:args];
+    [self makeViewPerformSelector:@selector(emitHeart:) withObject:args createIfNeeded:YES waitUntilDone:NO];
 }
 
+- (void)start:(id)args
+{
+    [self makeViewPerformSelector:@selector(start) withObject:nil createIfNeeded:YES waitUntilDone:NO];
+}
+
+- (void)stop:(id)args
+{
+    [self makeViewPerformSelector:@selector(stop) withObject:nil createIfNeeded:YES waitUntilDone:NO];
+}
+
+- (void)pause:(id)args
+{
+    [self makeViewPerformSelector:@selector(pause) withObject:nil createIfNeeded:YES waitUntilDone:NO];
+}
+
+- (void)resume:(id)args
+{
+    [self makeViewPerformSelector:@selector(resume) withObject:nil createIfNeeded:YES waitUntilDone:NO];
+}
+
+- (NSNumber *)isActive
+{
+    if (![self viewAttached]) {
+        return @NO;
+    }
+    return [(DeMarcbenderEmitterviewView *)[self view] isActive];
+}
 
 @end

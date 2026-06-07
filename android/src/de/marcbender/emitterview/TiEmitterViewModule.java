@@ -28,6 +28,20 @@ public class TiEmitterViewModule extends KrollModule
 	private static final String LCAT = "DeMarcbenderEmitterViewModule";
 	private static final boolean DBG = TiConfig.LOGD;
 
+	// Particle Type Constants (accessible via require('de.marcbender.emitterview').PARTICLE_*)
+	@Kroll.constant public static final int PARTICLE_CUSTOM = 0;
+	@Kroll.constant public static final int PARTICLE_CONFETTI = 1;
+	@Kroll.constant public static final int PARTICLE_TRIANGLE = 2;
+	@Kroll.constant public static final int PARTICLE_STAR = 3;
+	@Kroll.constant public static final int PARTICLE_DIAMOND = 4;
+	@Kroll.constant public static final int PARTICLE_TEXT = 5;
+
+	// Direction Constants (accessible via require('de.marcbender.emitterview').DIRECTION_*)
+	@Kroll.constant public static final int DIRECTION_UP = 0;
+	@Kroll.constant public static final int DIRECTION_DOWN = 1;
+	@Kroll.constant public static final int DIRECTION_LEFT = 2;
+	@Kroll.constant public static final int DIRECTION_RIGHT = 3;
+
 	public TiEmitterViewModule()
 	{
 		super();

@@ -3,12 +3,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DeMarcbenderEmitterviewView: TiUIView
-
-@property (nonatomic, strong, readonly) NSMutableArray<UIImage *> *imagesList;
+@interface DeMarcbenderEmitterviewView : TiUIView
 
 #pragma mark Public APIs
 - (void)emitHeart:(id)args;
+- (void)start;
+- (void)stop;
+- (void)pause;
+- (void)resume;
+- (NSNumber *)isActive;
 
 @end
 

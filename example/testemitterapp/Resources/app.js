@@ -1,234 +1,176 @@
 /**
- * Require emitterView Module
- */
- var emitterViewModule = require('de.marcbender.emitterview');
-
-/**
- * Require IconicFont and FontAwesome
- */
- var fontawesome = require('/lib/IconicFont').IconicFont({font: '/lib/FontAwesome',ligature: false});
-
-
-
-/**
- * Create a new `Ti.UI.TabGroup`.
- */
-var tabGroup = Ti.UI.createTabGroup();
-
-/**
- * Add the two created tabs to the tabGroup object.
- */
-tabGroup.addTab(createTab("Tab 1", "I am Window 1", "assets/images/tab1.png"));
-tabGroup.addTab(createTab("Tab 2", "I am Window 2", "assets/images/tab2.png"));
-
-/**
- * Open the tabGroup
- */
-tabGroup.open();
-
-var emitterImages = [];
-
-var buttonViewIsAnimating = false;
-var buttonView2IsAnimating = false;
-
-function generateThumbColorImage(color,icon,height){
-
-    return Ti.UI.createLabel({
-        width:Ti.UI.SIZE,
-        height:Ti.UI.SIZE,
-        color: color,
-        textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
-        font: {
-            fontSize:(!height) ? 38 : (Ti.Platform.osname === 'android') ? (height/Ti.Platform.displayCaps.logicalDensityFactor) : height-2,
-            fontFamily:fontawesome.fontfamily()
-        },
-        text: (!icon) ? fontawesome.icon('icon-thumbs-up') : fontawesome.icon(icon) 
-     }).toImage(null,false);
-
-}
-
-
-
-
-
-/**
- * Creates a new Tab and configures it.
+ * titanium-emitterview — RainConfetti Demo App
  *
- * @param  {String} title The title used in the `Ti.UI.Tab` and it's included `Ti.UI.Window`
- * @param  {String} message The title displayed in the `Ti.UI.Label`
- * @return {String} icon The icon used in the `Ti.UI.Tab`
+ * Demonstrates all particle types with animation lifecycle control
  */
 
-function createTab(title, message, icon) {
-    var win = Ti.UI.createWindow({
-        title: title,
-        backgroundColor: '#fff',
-        top:0,
-        bottom:0,
-        left:0,
-        right:0,
-        height:Ti.UI.FILL,
-        width:Ti.UI.FILL,
+var emitterViewModule = require('de.marcbender.emitterview');
+
+var win = Ti.UI.createWindow({
+    title: 'Rain Confetti Demo',
+    backgroundColor: '#1a1a2e'
+});
+
+// ── Header Label ──────────────────────────────────────────
+var headerLabel = Ti.UI.createLabel({
+    text: 'Rain Confetti Demo',
+    color: '#fff',
+    font: { fontSize: 24, fontWeight: 'bold' },
+    textAlign: 'center',
+    top: 40,
+    width: Ti.UI.FILL,
+    height: Ti.UI.SIZE
+});
+win.add(headerLabel);
+
+// ── Emitter View (fullscreen overlay) ────────────────────
+var emitterView = emitterViewModule.createView({
+    top: 0, left: 0, right: 0, bottom: 0,
+    width: Ti.UI.FILL,
+    height: Ti.UI.FILL,
+    particleType: emitterViewModule.PARTICLE_CONFETTI,
+    direction: emitterViewModule.DIRECTION_DOWN,
+    intensity: 0.7,
+    velocity: 350,
+    velocityRange: 80,
+    spin: 360,
+    spinRange: 180,
+    scaleRange: 0.5,
+    scaleSpeed: -0.05,
+    lifetime: 7.0
+});
+win.add(emitterView);
+
+// ── Button Container ─────────────────────────────────────
+var buttonContainer = Ti.UI.createView({
+    top: 100,
+    width: Ti.UI.FILL - 40,
+    height: Ti.UI.SIZE,
+    layout: 'vertical',
+    left: 20
+});
+win.add(buttonContainer);
+
+// ── Button Factory ───────────────────────────────────────
+function createButton(title, color, callback) {
+    var button = Ti.UI.createView({
+        width: Ti.UI.FILL,
+        height: 50,
+        backgroundColor: color,
+        borderRadius: 10
     });
 
     var label = Ti.UI.createLabel({
-        text: message,
-        color: "#333",
-        font: {
-            fontSize: 20
-        }
-    });
-    label.addEventListener("click",function(e){
-        alert("asdfasdf");
-    });
-
-    win.add(label);
-
-
-    /**
-     * Add images to an array that is needed for the emitterView
-     */
-    var emitterImages = [];
-    emitterImages.push("/images/heart2.png");
-    emitterImages.push(generateThumbColorImage('red','fa-heart',40));
-    emitterImages.push(generateThumbColorImage('red',null,40));
-    emitterImages.push(generateThumbColorImage('yellow',null,40));
-    emitterImages.push(generateThumbColorImage('orange',null,40));
-    emitterImages.push(generateThumbColorImage('blue',null,40));
-    emitterImages.push(generateThumbColorImage('purple',null,40));
-    emitterImages.push(generateThumbColorImage('green',null,40));
-    emitterImages.push(generateThumbColorImage('magenta',null,40));
-    emitterImages.push(generateThumbColorImage('#16c7cd',null,40));
-
-    /**
-     * create an emitterView
-     */
-    var emitterView = emitterViewModule.createView({
-        top:0,
-        left:0,
-        right:0,
-        bottom:0,
-        backgroundColor:'#55b55e5e',
-        height:Ti.UI.FILL,
-        width:Ti.UI.FILL,      
-		amplitude:8, // Integer
-        maxAmplitude:14, // Integer
-        duration:(Ti.Platform.osname === 'android') ? 2.5 : 3.0, // Float - in seconds
-        maxDuration:(Ti.Platform.osname === 'android') ? 3.0 : 3.5, // Float - in seconds
-        particleImages:emitterImages, // array of images or imageBlobs
-    })
-
-    win.add(emitterView);
-
-     /**
-     * create a buttonView where the images to emit will be emitted from
-     */
-    var buttonView = Ti.UI.createView({
-        width: Ti.UI.SIZE,
+        text: title,
+        color: '#fff',
+        font: { fontSize: 18, fontWeight: 'medium' },
+        textAlign: 'center',
+        width: Ti.UI.FILL,
         height: Ti.UI.SIZE,
-        bottom:70,
-        left:20
-     });
-
-    var buttonLabel = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: 'blue',
-        textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
-        font: {
-            fontSize: 36,
-            fontFamily: fontawesome.fontfamily()
-        },
-        text:fontawesome.icon('icon-thumbs-up')
-    });
-    buttonView.add(buttonLabel);
-
-    var buttonView2 = Ti.UI.createView({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        bottom:100,
-        right:20
-     });
-
-    var buttonLabel2 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: 'red',
-        textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
-        font: {
-            fontSize: 36,
-            fontFamily: fontawesome.fontfamily()
-        },
-        text:fontawesome.icon('fa-heart')
-    });
-    buttonView2.add(buttonLabel2);
-
-
- /**
- * Define Buttons touch animations
- */
-    var touchStartAnim = Titanium.UI.createAnimation({
-        duration: 90,
-        opacity: 0.3,
-        autoreverse:true
-    });
-    touchStartAnim.addEventListener('complete', function() {
-        buttonViewIsAnimating = false;
+        top: 0, bottom: 0
     });
 
-    var touchStartAnim2 = Titanium.UI.createAnimation({
-        duration: 90,
-        opacity: 0.3,
-        autoreverse:true
-    });
-    touchStartAnim2.addEventListener('complete', function() {
-        buttonView2IsAnimating = false;
-    });
+    button.add(label);
 
-
-    /**
-     * create an eventLister for the buttonView which will call the 'emitterView.emitImage({PARAMS})' method
-     * for iOS 'singletap' is the prefered listener, for Android 'touchstart' is prefered
-     * 'click' listener is to slow to emit the images fast... but you decide what you do... just a proposal....
-     */
-     buttonView.addEventListener("touchstart",function(e){
-        if (buttonViewIsAnimating == false){
-            buttonViewIsAnimating = true;
-            buttonView.animate(touchStartAnim);
-        }
-            // the emitImage method can also be called without the button 'singletap' listener, it´s important that the parameter 'sourceView' is set to a view where the images will be emitted from
-            emitterView.emitImage({
-                sourceView:buttonView, // obligatory!!!
-                startId:3, // optional
-                endId:emitterImages.length, // optional
-                // id:1 // optional - select a specific image from the 'particleImages' array to be emitted
+    button.addEventListener('click', function () {
+        button.animate({
+            scale: 0.95,
+            duration: 100
+        }, function () {
+            button.animate({
+                scale: 1.0,
+                duration: 100
             });
+        });
 
+        if (callback) callback();
     });
 
-
-    buttonView2.addEventListener("touchstart",function(e){
-        if (buttonView2IsAnimating == false){
-            buttonView2IsAnimating = true;
-            buttonView2.animate(touchStartAnim2);
-        } 
-            // the emitImage method can also be called without the button 'singletap' listener, it´s important that the parameter 'sourceView' is set to a view where the images will be emitted from
-            emitterView.emitImage({
-                sourceView:buttonView2, // obligatory!!!
-               // startId:1, // optional - start by 1
-               // endId:2, // optional - ends by particleImages.length
-                id:2 // optional - select a specific image from the 'particleImages' array to be emitted
-            });
-
-    });
-    win.add(buttonView);
-    win.add(buttonView2);
-
-    var tab = Ti.UI.createTab({
-        title: title,
-        icon: icon,
-        window: win
-    });
-
-    return tab;
+    return button;
 }
+
+// ── Particle Type Buttons ────────────────────────────────
+var confettiButton = createButton('Confetti', '#007AFF', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_CONFETTI;
+    emitterView.direction = emitterViewModule.DIRECTION_DOWN;
+    emitterView.colors = ['#FF3B30', '#007AFF', '#34C759', '#FFCC00', '#AF52DE'];
+    emitterView.intensity = 0.7;
+    emitterView.velocity = 350;
+    emitterView.velocityRange = 80;
+    emitterView.start();
+});
+buttonContainer.add(confettiButton);
+
+var triangleButton = createButton('Triangle', '#34C759', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_TRIANGLE;
+    emitterView.direction = emitterViewModule.DIRECTION_DOWN;
+    emitterView.colors = ['#FF9500', '#FF2D55', '#5AC8FA'];
+    emitterView.intensity = 0.7;
+    emitterView.start();
+});
+buttonContainer.add(triangleButton);
+
+var starButton = createButton('Star', '#FFCC00', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_STAR;
+    emitterView.direction = emitterViewModule.DIRECTION_DOWN;
+    emitterView.colors = ['#FFCC00', '#FF9500', '#FF3B30'];
+    emitterView.intensity = 0.7;
+    emitterView.start();
+});
+buttonContainer.add(starButton);
+
+var diamondButton = createButton('Diamond', '#AF52DE', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_DIAMOND;
+    emitterView.direction = emitterViewModule.DIRECTION_DOWN;
+    emitterView.colors = ['#007AFF', '#AF52DE', '#5856D6'];
+    emitterView.intensity = 0.7;
+    emitterView.start();
+});
+buttonContainer.add(diamondButton);
+
+var textButton = createButton('Text "HAPPY"', '#FF2D55', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_TEXT;
+    emitterView.text = 'HAPPY';
+    emitterView.direction = emitterViewModule.DIRECTION_DOWN;
+    emitterView.colors = ['#FF3B30', '#FFCC00', '#007AFF'];
+    emitterView.intensity = 0.7;
+    emitterView.start();
+});
+buttonContainer.add(textButton);
+
+// ── Direction Buttons ────────────────────────────────────
+var upButton = createButton('Up (from bottom)', '#5AC8FA', function () {
+    emitterView.stop();
+    emitterView.particleType = emitterViewModule.PARTICLE_CONFETTI;
+    emitterView.direction = emitterViewModule.DIRECTION_UP;
+    emitterView.colors = ['#FF3B30', '#007AFF', '#34C759', '#FFCC00', '#AF52DE'];
+    emitterView.intensity = 0.7;
+    emitterView.start();
+});
+buttonContainer.add(upButton);
+
+// ── Stop Button ──────────────────────────────────────────
+var stopButton = createButton('Stop', '#FF3B30', function () {
+    emitterView.stop();
+});
+buttonContainer.add(stopButton);
+
+// ── Info Label ───────────────────────────────────────────
+var infoLabel = Ti.UI.createLabel({
+    text: 'Tap a button to start particles.\nTap Stop to end the animation.',
+    color: '#8e8e93',
+    font: { fontSize: 14 },
+    textAlign: 'center',
+    bottom: 40,
+    width: Ti.UI.FILL - 40,
+    height: Ti.UI.SIZE
+});
+win.add(infoLabel);
+
+// ── Open Window ──────────────────────────────────────────
+win.open();
