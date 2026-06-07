@@ -16,6 +16,10 @@
 @property (nonatomic, strong) NSTimer *autoStopTimer;
 @property (nonatomic, assign) CGFloat savedBirthRate;
 
+// Shape image caching (Task #4 optimization)
+@property (nonatomic, strong) NSCache<NSString *, UIImage *> *shapeImageCache;
+@property (nonatomic, strong) NSCache<NSString *, UIImage *> *textImageCache;
+
 @end
 
 @implementation HeartEmitterView
@@ -75,6 +79,13 @@
     self.isPaused = NO;
 
     self.userInteractionEnabled = NO;
+    
+    // Initialize shape and text image caches (Task #4 optimization)
+    _shapeImageCache = [[NSCache alloc] init];
+    _shapeImageCache.countLimit = 100;  // Cache up to 100 shape images
+    _textImageCache = [[NSCache alloc] init];
+    _textImageCache.countLimit = 200;  // Cache up to 200 text images
+    
     [self setupEmitterLayer];
 }
 
@@ -150,22 +161,40 @@
     }
 }
 
-#pragma mark - Shape Generation
+#pragma mark - Shape Generation (with caching - Task #4 optimization)
+
+// Helper: Create cache key from shape type and color hex string
+- (NSString *)cacheKeyForShape:(NSString *)shapeType color:(UIColor *)color {
+    CGFloat r, g, b, a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [NSString stringWithFormat:@"%@_%.0f_%.0f_%.0f", shapeType, 
+            (NSInteger)(g * 255), (NSInteger)(b * 255), (NSInteger)(a * 255)];
+}
 
 - (UIImage *)generateConfettiImageWithColor:(UIColor *)color {
+    NSString *cacheKey = [self cacheKeyForShape:@"confetti" color:color];
+    UIImage *cached = [_shapeImageCache objectForKey:cacheKey];
+    if (cached) return cached;
+    
     CGSize size = CGSizeMake(12, 8);
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
-    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
         [color setFill];
         CGContextRef cgCtx = ctx.CGContext;
         CGContextFillRect(cgCtx, CGRectMake(0, 0, size.width, size.height));
     }];
+    [_shapeImageCache setObject:image forKey:cacheKey];
+    return image;
 }
 
 - (UIImage *)generateTriangleImageWithColor:(UIColor *)color {
+    NSString *cacheKey = [self cacheKeyForShape:@"triangle" color:color];
+    UIImage *cached = [_shapeImageCache objectForKey:cacheKey];
+    if (cached) return cached;
+    
     CGSize size = CGSizeMake(12, 12);
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
-    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
         [color setFill];
         CGContextRef cgCtx = ctx.CGContext;
         CGContextMoveToPoint(cgCtx, size.width / 2, 0);
@@ -174,12 +203,18 @@
         CGContextClosePath(cgCtx);
         CGContextFillPath(cgCtx);
     }];
+    [_shapeImageCache setObject:image forKey:cacheKey];
+    return image;
 }
 
 - (UIImage *)generateStarImageWithColor:(UIColor *)color {
+    NSString *cacheKey = [self cacheKeyForShape:@"star" color:color];
+    UIImage *cached = [_shapeImageCache objectForKey:cacheKey];
+    if (cached) return cached;
+    
     CGSize size = CGSizeMake(16, 16);
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
-    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
         [color setFill];
         CGContextRef cgCtx = ctx.CGContext;
         CGFloat outerRadius = size.width / 2;
@@ -201,12 +236,18 @@
         CGContextClosePath(cgCtx);
         CGContextFillPath(cgCtx);
     }];
+    [_shapeImageCache setObject:image forKey:cacheKey];
+    return image;
 }
 
 - (UIImage *)generateDiamondImageWithColor:(UIColor *)color {
+    NSString *cacheKey = [self cacheKeyForShape:@"diamond" color:color];
+    UIImage *cached = [_shapeImageCache objectForKey:cacheKey];
+    if (cached) return cached;
+    
     CGSize size = CGSizeMake(12, 12);
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
-    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
         [color setFill];
         CGContextRef cgCtx = ctx.CGContext;
         CGContextMoveToPoint(cgCtx, size.width / 2, 0);
@@ -216,22 +257,36 @@
         CGContextClosePath(cgCtx);
         CGContextFillPath(cgCtx);
     }];
+    [_shapeImageCache setObject:image forKey:cacheKey];
+    return image;
 }
 
 - (UIImage *)generateTextImageForCharacter:(unichar)character color:(UIColor *)color {
-    NSString *text = [[NSString alloc] initWithCharacters:&character length:1];
+    // Create cache key from character, color, and font
+    NSString *charStr = [[NSString alloc] initWithCharacters:&character length:1];
+    CGFloat r, g, b, a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    NSString *cacheKey = [NSString stringWithFormat:@"text_%@_%.0f_%.0f_%.0f_%.0f",
+            charStr, (NSInteger)(g * 255), (NSInteger)(b * 255), (NSInteger)(a * 255),
+            self.particleFont.pointSize];
+    
+    UIImage *cached = [_textImageCache objectForKey:cacheKey];
+    if (cached) return cached;
+    
     NSDictionary *attrs = @{
         NSFontAttributeName: self.particleFont,
         NSForegroundColorAttributeName: color
     };
-    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:attrs];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:charStr attributes:attrs];
     CGSize textSize = [attributedText size];
 
     CGSize imageSize = CGSizeMake(textSize.width + 4, textSize.height + 4);
     UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:imageSize];
-    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *ctx) {
         [attributedText drawAtPoint:CGPointMake(2, 2)];
     }];
+    [_textImageCache setObject:image forKey:cacheKey];
+    return image;
 }
 
 #pragma mark - Emitter Cell Configuration

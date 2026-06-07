@@ -32,7 +32,9 @@ public class HeartEmitterView extends RelativeLayout {
 
     private static final String TAG = "HeartEmitterView";
     private static final int MAX_PARTICLES = 200;
-    private static final int POOL_SIZE = 30;
+    // Pool size optimized: 50% of MAX_PARTICLES for better memory efficiency
+    // while reducing allocation overhead during burst emission
+    private static final int POOL_SIZE = 100;
 
     // Particle types
     public static final int PARTICLE_TYPE_CUSTOM    = 0;
@@ -100,6 +102,20 @@ public class HeartEmitterView extends RelativeLayout {
     // Choreographer for continuous emission
     private Choreographer choreographer;
     private Choreographer.FrameCallback frameCallback;
+
+    // Auto-stop timer reference for proper cleanup
+    private Runnable autoStopTask;
+
+    // Cached Paint and Path objects to reduce GC pressure (Task #1 optimization)
+    private final Paint shapePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Path shapePath = new Path();
+
+    // Shape bitmap cache per color (Task #2 optimization)
+    // Key format: "type_colorIndex" -> cached Bitmap
+    private String lastShapeType = null;
+    private int[] lastCachedColors = null;
+    private Bitmap[] colorBitmapCache = null;
+    private int colorBitmapCacheSize = 0;
 
     public HeartEmitterView(Context context) {
         super(context);
@@ -203,14 +219,15 @@ public class HeartEmitterView extends RelativeLayout {
         };
         choreographer.postFrameCallback(frameCallback);
 
-        // Auto-stop timer
+        // Auto-stop timer (stored for cleanup in stop())
         if (autoStopDuration > 0) {
-            postDelayed(new Runnable() {
+            autoStopTask = new Runnable() {
                 @Override
                 public void run() {
                     stop();
                 }
-            }, (long)(autoStopDuration * 1000));
+            };
+            postDelayed(autoStopTask, (long)(autoStopDuration * 1000));
         }
     }
 
@@ -219,8 +236,17 @@ public class HeartEmitterView extends RelativeLayout {
 
         isRunning = false;
         if (frameCallback != null) {
-            choreographer.postFrameCallback(frameCallback);
+            choreographer.removeFrameCallback(frameCallback);
         }
+
+        // Cancel auto-stop timer if pending (Task #8 optimization)
+        if (autoStopTask != null) {
+            removeCallbacks(autoStopTask);
+            autoStopTask = null;
+        }
+
+        // Recycle bitmaps and clean up resources (Task #3 optimization)
+        cleanup();
 
         if (autoRemove) {
             ((ViewGroup)getParent()).removeView(this);
@@ -269,9 +295,10 @@ public class HeartEmitterView extends RelativeLayout {
                 }
             }
         } else if (particleType != PARTICLE_TYPE_CUSTOM) {
-            // Shape mode: generate colored shapes
-            for (int color : colors) {
-                Bitmap bitmap = createShapeBitmap(particleType, color);
+            // Shape mode: use cached bitmaps per color (Task #2 optimization)
+            updateShapeBitmapCache(particleType);
+            for (int i = 0; i < colors.length && i < colorBitmapCacheSize; i++) {
+                Bitmap bitmap = colorBitmapCache[i];
                 if (bitmap != null && !bitmap.isRecycled()) {
                     generatedBitmaps.add(bitmap);
                 }
@@ -279,52 +306,106 @@ public class HeartEmitterView extends RelativeLayout {
         }
     }
 
+    // Update shape bitmap cache when colors or particleType changes (Task #2)
+    private void updateShapeBitmapCache(int type) {
+        String currentShapeType = shapeTypeToString(type);
+        
+        // Check if we need to rebuild the cache
+        boolean needsRebuild = false;
+        if (!currentShapeType.equals(lastShapeType)) {
+            needsRebuild = true;
+        } else if (lastCachedColors == null || lastCachedColors.length != colors.length) {
+            needsRebuild = true;
+        } else {
+            for (int i = 0; i < colors.length; i++) {
+                if (lastCachedColors[i] != colors[i]) {
+                    needsRebuild = true;
+                    break;
+                }
+            }
+        }
+
+        if (!needsRebuild && colorBitmapCache != null) {
+            // Cache is valid, reuse existing bitmaps
+            return;
+        }
+
+        // Rebuild cache: recycle old bitmaps and create new ones
+        if (colorBitmapCache != null) {
+            for (Bitmap b : colorBitmapCache) {
+                if (b != null && !b.isRecycled()) {
+                    b.recycle();
+                }
+            }
+        }
+
+        colorBitmapCache = new Bitmap[colors.length];
+        lastCachedColors = colors.clone();
+        lastShapeType = currentShapeType;
+        colorBitmapCacheSize = colors.length;
+
+        for (int i = 0; i < colors.length; i++) {
+            colorBitmapCache[i] = createShapeBitmap(type, colors[i]);
+        }
+    }
+
+    private String shapeTypeToString(int type) {
+        switch (type) {
+            case PARTICLE_TYPE_CONFETTI: return "confetti";
+            case PARTICLE_TYPE_TRIANGLE: return "triangle";
+            case PARTICLE_TYPE_STAR: return "star";
+            case PARTICLE_TYPE_DIAMOND: return "diamond";
+            default: return "unknown";
+        }
+    }
+
     private Bitmap createShapeBitmap(int type, int color) {
         int size = (int)dpToPx(16);
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(color);
+
+        // Reuse cached Paint object (Task #1 optimization)
+        shapePaint.setColor(color);
 
         switch (type) {
             case PARTICLE_TYPE_CONFETTI:
-                canvas.drawRect(0, size/3, size, 2*size/3, paint);
+                canvas.drawRect(0, size/3, size, 2*size/3, shapePaint);
                 break;
 
             case PARTICLE_TYPE_TRIANGLE:
-                Path triangle = new Path();
-                triangle.moveTo(size/2, 0);
-                triangle.lineTo(size, size);
-                triangle.lineTo(0, size);
-                triangle.close();
-                canvas.drawPath(triangle, paint);
+                shapePath.reset();
+                shapePath.moveTo(size/2, 0);
+                shapePath.lineTo(size, size);
+                shapePath.lineTo(0, size);
+                shapePath.close();
+                canvas.drawPath(shapePath, shapePaint);
                 break;
 
             case PARTICLE_TYPE_STAR:
-                Path star = new Path();
+                shapePath.reset();
                 float outerRadius = size / 2;
                 float innerRadius = size / 5;
                 float centerX = size / 2;
                 float centerY = size / 2;
-                star.moveTo(centerX, centerY - outerRadius);
+                shapePath.moveTo(centerX, centerY - outerRadius);
                 for (int i = 0; i < 5; i++) {
                     float outerAngle = -(float)Math.PI/2 + ((i * 2 * (float)Math.PI / 5));
                     float innerAngle = outerAngle + (float)Math.PI / 5;
-                    star.lineTo(centerX + (float)Math.cos(outerAngle) * outerRadius, centerY + (float)Math.sin(outerAngle) * outerRadius);
-                    star.lineTo(centerX + (float)Math.cos(innerAngle) * innerRadius, centerY + (float)Math.sin(innerAngle) * innerRadius);
+                    shapePath.lineTo(centerX + (float)Math.cos(outerAngle) * outerRadius, centerY + (float)Math.sin(outerAngle) * outerRadius);
+                    shapePath.lineTo(centerX + (float)Math.cos(innerAngle) * innerRadius, centerY + (float)Math.sin(innerAngle) * innerRadius);
                 }
-                star.close();
-                canvas.drawPath(star, paint);
+                shapePath.close();
+                canvas.drawPath(shapePath, shapePaint);
                 break;
 
             case PARTICLE_TYPE_DIAMOND:
-                Path diamond = new Path();
-                diamond.moveTo(size/2, 0);
-                diamond.lineTo(size, size/2);
-                diamond.lineTo(size/2, size);
-                diamond.lineTo(0, size/2);
-                diamond.close();
-                canvas.drawPath(diamond, paint);
+                shapePath.reset();
+                shapePath.moveTo(size/2, 0);
+                shapePath.lineTo(size, size/2);
+                shapePath.lineTo(size/2, size);
+                shapePath.lineTo(0, size/2);
+                shapePath.close();
+                canvas.drawPath(shapePath, shapePaint);
                 break;
         }
 
@@ -332,19 +413,19 @@ public class HeartEmitterView extends RelativeLayout {
     }
 
     private Bitmap createTextBitmap(char character, int color) {
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setTextSize(textFontSize * density);
-        paint.setTypeface(textTypeface);
-        paint.setColor(color);
+        // Reuse cached Paint object (Task #1 optimization)
+        shapePaint.setTextSize(textFontSize * density);
+        shapePaint.setTypeface(textTypeface);
+        shapePaint.setColor(color);
 
         String text = String.valueOf(character);
-        float textWidth = paint.measureText(text);
+        float textWidth = shapePaint.measureText(text);
         int width = (int)(textWidth + 8);
         int height = (int)(textFontSize * density + 8);
 
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawText(text, 4, textFontSize * density, paint);
+        canvas.drawText(text, 4, textFontSize * density, shapePaint);
 
         return bitmap;
     }
@@ -543,12 +624,36 @@ public class HeartEmitterView extends RelativeLayout {
         synchronized (this) {
             imageViewPool.clear();
         }
+        // Recycle all generated bitmaps to prevent memory leaks
         for (Bitmap bitmap : generatedBitmaps) {
-            if (!bitmap.isRecycled()) {
-                bitmap.recycle();
+            if (bitmap != null && !bitmap.isRecycled()) {
+                try {
+                    bitmap.recycle();
+                } catch (Exception e) {
+                    // Bitmap may already be recycled, ignore
+                }
             }
         }
         generatedBitmaps.clear();
         currentCount = 0;
+    }
+
+    // Explicitly clear and recycle shape bitmap cache (call when view is destroyed)
+    public void destroyCache() {
+        if (colorBitmapCache != null) {
+            for (Bitmap b : colorBitmapCache) {
+                if (b != null && !b.isRecycled()) {
+                    try {
+                        b.recycle();
+                    } catch (Exception e) {
+                        // Ignore
+                    }
+                }
+            }
+            colorBitmapCache = null;
+        }
+        lastCachedColors = null;
+        lastShapeType = null;
+        colorBitmapCacheSize = 0;
     }
 }
