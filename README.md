@@ -386,7 +386,123 @@ likeButton.addEventListener('touchstart', function() {
 win.open();
 ```
 
-### Example 2: Confetti Celebration (Native Shapes)
+### Example 2: Like Button with Dynamic Image Particles
+
+Generate particle images at runtime from labels, combined with file-based images. Demonstrates `emitImage()` with `sourceView`, `startId`/`endId`, `emitValue`, `emitSpread`, and `emitScaleRange`.
+
+```javascript
+var emitterModule = require('de.marcbender.emitterview');
+var win = Ti.UI.createWindow({ backgroundColor: '#fff' });
+
+/**
+ * Generate a particle image from a text label with a given color and size.
+ * Uses .toImage() to render the label into a bitmap that the emitter can use.
+ */
+function generateThumbColorImage(color, symbol, height) {
+    return Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: color,
+        textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+        font: { fontSize: (Ti.Platform.osname === 'android') ? height / Ti.Platform.displayCaps.logicalDensityFactor : height },
+        text: symbol
+    }).toImage(null, false);
+}
+
+// Build an array of particle images — mix file images with dynamically generated ones
+var emitterImages = [];
+emitterImages.push('/images/heart2.png');
+emitterImages.push(generateThumbColorImage('red', '♥', 40));
+emitterImages.push(generateThumbColorImage('#FF3B30', '👍', 40));
+emitterImages.push(generateThumbColorImage('#FFCC00', '★', 40));
+emitterImages.push(generateThumbColorImage('#FF9500', '✦', 40));
+emitterImages.push(generateThumbColorImage('#007AFF', '✦', 40));
+emitterImages.push(generateThumbColorImage('#AF52DE', '★', 40));
+emitterImages.push(generateThumbColorImage('#34C759', '♦', 40));
+emitterImages.push(generateThumbColorImage('#FF2D55', '♥', 40));
+emitterImages.push(generateThumbColorImage('#16c7cd', '●', 40));
+
+var emitterView = emitterModule.createView({
+    top: 0, left: 0, right: 0, bottom: 0,
+    height: Ti.UI.FILL,
+    width: Ti.UI.FILL,
+    amplitude: 8,
+    maxAmplitude: 28,
+    duration: (Ti.Platform.osname === 'android') ? 2.5 : 3.0,
+    maxDuration: (Ti.Platform.osname === 'android') ? 3.0 : 3.5,
+    particleImages: emitterImages,
+    lifetime: 2.0,
+    velocity: 350
+});
+win.add(emitterView);
+
+// Thumb-up button — emits random particles from images 3–9 (the generated ones)
+var thumbButton = Ti.UI.createView({
+    width: Ti.UI.SIZE, height: Ti.UI.SIZE,
+    bottom: 70, left: 20
+});
+thumbButton.add(Ti.UI.createLabel({
+    text: '👍', font: { fontSize: 40 },
+    width: Ti.UI.SIZE, height: Ti.UI.SIZE
+}));
+win.add(thumbButton);
+
+// Heart button — emits only the heart image (index 1)
+var heartButton = Ti.UI.createView({
+    width: Ti.UI.SIZE, height: Ti.UI.SIZE,
+    bottom: 100, right: 20
+});
+heartButton.add(Ti.UI.createLabel({
+    text: '❤️', font: { fontSize: 40 },
+    width: Ti.UI.SIZE, height: Ti.UI.SIZE,
+    color: 'red'
+}));
+win.add(heartButton);
+
+var thumbAnimating = false;
+var heartAnimating = false;
+
+var thumbAnim = Ti.UI.createAnimation({ duration: 90, opacity: 0.3, autoreverse: true });
+thumbAnim.addEventListener('complete', function() { thumbAnimating = false; });
+
+var heartAnim = Ti.UI.createAnimation({ duration: 90, opacity: 0.3, autoreverse: true });
+heartAnim.addEventListener('complete', function() { heartAnimating = false; });
+
+thumbButton.addEventListener('touchstart', function() {
+    if (!thumbAnimating) {
+        thumbAnimating = true;
+        thumbButton.animate(thumbAnim);
+    }
+    emitterView.emitImage({
+        sourceView: thumbButton,
+        startId: 2,               // start from the 3rd image (0-based)
+        endId: emitterImages.length, // end at the last image
+        emitValue: 8,              // emit 8 particles per tap
+        emitSpread: 28,            // spread particles laterally by 28dp
+        emitScaleRange: 0.1,       // slight size variation
+        direction: emitterModule.DIRECTION_UP
+    });
+});
+
+heartButton.addEventListener('touchstart', function() {
+    if (!heartAnimating) {
+        heartAnimating = true;
+        heartButton.animate(heartAnim);
+    }
+    emitterView.emitImage({
+        sourceView: heartButton,
+        direction: emitterModule.DIRECTION_UP,
+        emitValue: 8,
+        emitSpread: 48,
+        emitScaleRange: 0.1,
+        id: 1                     // emit only the heart image (0-based index)
+    });
+});
+
+win.open();
+```
+
+### Example 3: Confetti Celebration (Native Shapes)
 
 Continuous confetti using built-in shape generation — no images required.
 
@@ -408,7 +524,7 @@ celebrateButton.addEventListener('click', function() {
 });
 ```
 
-### Example 3: Star Shower with Play/Pause/Stop Controls
+### Example 4: Star Shower with Play/Pause/Stop Controls
 
 Full animation lifecycle management.
 
@@ -439,7 +555,7 @@ stopButton.addEventListener('click', function() {
 });
 ```
 
-### Example 4: Text Particle Spell
+### Example 5: Text Particle Spell
 
 Spell out words with individual character particles.
 
@@ -463,7 +579,7 @@ castSpellButton.addEventListener('click', function() {
 });
 ```
 
-### Example 5: Diamond Wind Effect
+### Example 6: Diamond Wind Effect
 
 Horizontal particle stream from right to left.
 
@@ -482,7 +598,7 @@ win.add(diamondEmitter);
 diamondEmitter.start();
 ```
 
-### Example 6: Triangle Rain with Auto-Remove
+### Example 7: Triangle Rain with Auto-Remove
 
 Self-cleaning emitter view.
 
@@ -507,7 +623,7 @@ rainButton.addEventListener('click', function() {
 });
 ```
 
-### Example 7: Dynamic Emoji Particles (Legacy Mode)
+### Example 8: Dynamic Emoji Particles (Legacy Mode)
 
 Generate particle images from emoji labels at runtime.
 
@@ -532,7 +648,7 @@ likeButton.addEventListener('click', function() {
 });
 ```
 
-### Example 8: Continuous Celebration with Auto-Stop
+### Example 9: Continuous Celebration with Auto-Stop
 
 Self-limiting celebration effect.
 
@@ -551,7 +667,7 @@ win.add(celebration);
 celebration.start();
 ```
 
-### Example 9: Selective Image Emission (Legacy)
+### Example 10: Selective Image Emission (Legacy)
 
 Fine-grained control over which images are emitted.
 
@@ -573,7 +689,7 @@ customEmitter.emitImage({ sourceView: button, startId: 2, endId: 3 });
 customEmitter.emitImage({ sourceView: button });
 ```
 
-### Example 10: Multi-Direction Burst
+### Example 11: Multi-Direction Burst
 
 Create an explosive effect with particles in all directions simultaneously.
 
