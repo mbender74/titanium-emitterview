@@ -392,9 +392,8 @@
 
     self.isRunning = NO;
 
-    for (CAEmitterCell *cell in _emitterLayer.emitterCells) {
-        cell.birthRate = 0;
-    }
+    // Clear all emitter cells to stop emission AND remove existing particles
+    _emitterLayer.emitterCells = nil;
 
     [self.autoStopTimer invalidate];
     self.autoStopTimer = nil;
@@ -411,6 +410,7 @@
     for (CAEmitterCell *cell in _emitterLayer.emitterCells) {
         cell.birthRate = 0;
     }
+    // Keep cells but stop emission
 }
 
 - (void)resume {

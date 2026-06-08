@@ -254,11 +254,19 @@ public class HeartEmitterView extends RelativeLayout {
     }
 
     public void pause() {
+        if (!isRunning || isPaused) return;
         isPaused = true;
+        // Unpost the frame callback to save CPU while paused
+        if (frameCallback != null) {
+            choreographer.removeFrameCallback(frameCallback);
+        }
     }
 
     public void resume() {
+        if (!isRunning || !isPaused) return;
         isPaused = false;
+        // Re-register the frame callback
+        choreographer.postFrameCallback(frameCallback);
     }
 
     public boolean isActive() {
