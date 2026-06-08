@@ -203,7 +203,7 @@ All methods are called on the emitter view instance returned by `createView()`.
 Starts continuous particle emission. Particles are emitted at a rate determined by `intensity` until `stop()` is called or `autoStopDuration` elapses.
 
 - **Platform behavior:**
-  - **iOS:** Configures `CAEmitterCell` birth rates and activates the emitter layer.
+  - **iOS:** Configures `CAEmitterCell` birth rates and activates the emitter layer. Resets layer speed/time offset in case the emitter was previously paused.
   - **Android:** Posts a `Choreographer.FrameCallback` that emits particles each frame based on intensity.
 - **Idempotent:** Calling `start()` when already running has no effect.
 - **Resets position:** Clears any custom `emitterPosition` set by `emitImage()` and restores the default direction-based position.
@@ -214,10 +214,10 @@ emitterView.start();
 
 #### `stop()`
 
-Stops particle emission immediately and begins cleanup.
+Stops particle emission immediately and cleans up all resources.
 
-- Sets birth rate to zero (iOS) or cancels the frame callback (Android).
-- Existing particles continue their animation until completion, then are removed.
+- **iOS:** Removes all emitter cells and sublayers, then recreates a clean emitter layer. In-flight particles are removed immediately.
+- **Android:** Cancels the frame callback, cancels all active animations (in-flight particles stop and are recycled), then performs full cleanup.
 - If `autoRemove` is `true`, the view is removed from its parent after stopping.
 - Cancels any pending `autoStopDuration` timer.
 
@@ -227,10 +227,10 @@ emitterView.stop();
 
 #### `pause()`
 
-Pauses particle emission without resetting state. The emitter remains "running" but produces no new particles. Can be resumed with `resume()`.
+Freezes the emitter in place. All in-flight particles stop moving and no new particles are emitted. Can be resumed with `resume()`.
 
-- **iOS:** Saves the current birth rate and sets all cells to zero.
-- **Android:** Sets a pause flag; the frame callback continues but skips emission.
+- **iOS:** Sets `layer.speed = 0` with a time offset freeze, halting all Core Animation timelines. Particles remain visible at their current positions.
+- **Android:** Removes the `Choreographer` frame callback (no new particles) and calls `pause()` on all active `Animator` objects (in-flight particles freeze in place).
 
 ```javascript
 emitterView.pause();
@@ -238,8 +238,10 @@ emitterView.pause();
 
 #### `resume()`
 
-Resumes a paused emitter. Restores the previous birth rate and continues emission where it left off.
+Resumes a paused emitter. In-flight animations continue from where they were frozen, and new particle emission resumes.
 
+- **iOS:** Restores `layer.speed = 1` and adjusts `timeOffset`/`beginTime` so animations seamlessly continue from the paused position.
+- **Android:** Re-posts the `Choreographer` frame callback and calls `resume()` on all paused `Animator` objects.
 - Has no effect if the emitter is not in a paused state.
 - Has no effect if the emitter has been stopped (use `start()` instead).
 
@@ -608,6 +610,8 @@ burstButton.addEventListener('click', function() {
 | Feature | Implementation Detail |
 |---------|----------------------|
 | **Animation Engine** | Core Animation — `CAEmitterLayer` with `CAEmitterCell` for continuous mode; `CAKeyframeAnimation` + `CABasicAnimation` for burst mode (`emitImage`) |
+| **Pause/Resume** | `layer.speed = 0` / `layer.speed = 1` with time offset correction — Apple-recommended pattern that freezes all animations in place and seamlessly resumes |
+| **Stop** | Removes all emitter cells and sublayers, recreates a clean emitter layer |
 | **Emission Driver** | `CAEmitterLayer` birth rate (hardware-accelerated, GPU-driven) |
 | **Shape Generation** | `UIGraphicsImageRenderer` — modern, thread-safe API. Generates vector shapes as `UIImage` at the device's native scale. |
 | **Frame Rate** | 60fps baseline; 120fps on ProMotion displays (via `traitCollection.displayScale`) |
@@ -622,6 +626,8 @@ burstButton.addEventListener('click', function() {
 | Feature | Implementation Detail |
 |---------|----------------------|
 | **Animation Engine** | Property Animators (`ObjectAnimator`, `AnimatorSet`) for translation, rotation, scale, and alpha |
+| **Pause/Resume** | Removes `Choreographer` frame callback + pauses all active `Animator` objects; resume re-posts callback and resumes animators |
+| **Stop** | Cancels frame callback, cancels all active animations (with listener cleanup), then performs full resource cleanup |
 | **Emission Driver** | `Choreographer.FrameCallback` — vsync-synced emission loop, called once per display refresh |
 | **Hardware Acceleration** | `LAYER_TYPE_HARDWARE` on all particle `ImageView` instances for GPU compositing |
 | **Shape Generation** | Native Android `Canvas`, `Path`, and `Paint` APIs. Bitmaps created at device density resolution. |
@@ -692,6 +698,8 @@ burstButton.addEventListener('click', function() {
 ### Animation control not working as expected
 
 - **Call order matters:** `start()` must be called before `pause()`, `resume()`, or `stop()`. Calling them in the wrong order is a no-op.
+- **Pause freezes in place:** On iOS, `pause()` sets `layer.speed = 0`, which freezes all Core Animation timelines. On Android, it pauses all active `Animator` objects and removes the frame callback. In-flight particles stay visible at their current positions.
+- **Stop removes everything:** On iOS, `stop()` removes all emitter cells and sublayers. On Android, it cancels all active animations and recycles particle views. If you want particles to finish their animations, use `pause()` instead and call `stop()` later.
 - **Check `isActive()`:** Use this to verify the current state before calling control methods.
 - **`autoStopDuration` overrides manual control:** If set, the timer will call `stop()` automatically regardless of other interactions.
 - **`emitImage()` uses a different code path:** It doesn't interact with `start()`/`stop()` state. Burst emission always works independently.
@@ -709,6 +717,16 @@ burstButton.addEventListener('click', function() {
 ---
 
 ## Changelog
+
+### 2026-06-08 — Lifecycle & Direction Fixes
+
+- **iOS:** Fixed `pause()` and `resume()` — now uses `layer.speed = 0` / `layer.speed = 1` with time offset correction (Apple-recommended pattern) instead of birth rate manipulation. In-flight particles freeze in place and resume seamlessly.
+- **iOS:** Fixed `stop()` — now removes all emitter cells and sublayers, then recreates a clean emitter layer, instead of just setting birth rate to zero.
+- **iOS:** Fixed direction mapping for `kCAEmitterLayerLine` — added +π/2 offset to `emissionLongitude` values so `DIRECTION_UP`/`DOWN`/`LEFT`/`RIGHT` produce correct particle directions.
+- **iOS:** Fixed `layoutSubviews` and `setupEmitterLayer` — now calls `updateEmitterPosition()` instead of hardcoding emitter position and size, so direction changes take effect immediately.
+- **Android:** Fixed `start()`, `stop()`, `pause()`, `resume()` — all lifecycle methods now dispatch to the main thread via `runOnMainThread()`.
+- **Android:** Added `propertyChanged()` override in `EmitterView` — dynamic JS property changes (e.g., `emitterView.direction = 1`) now propagate to the native `HeartEmitterView`.
+- **Android:** Added animation tracking — `pause()` pauses all active `Animator` objects and removes the `Choreographer` callback; `resume()` restores both. `stop()` cancels all active animations before cleanup.
 
 ### 2026-06-06 — RainConfetti Integration
 

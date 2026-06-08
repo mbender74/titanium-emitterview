@@ -22,7 +22,7 @@ android {
 	defaultConfig {
 		minSdkVersion 24
 		targetSdkVersion 35
-		versionName '1.0.3'
+		versionName '1.0.5'
 
 		// Add the following constants to Gradle generated "BuildConfig" Java class under module's namespace.
 		buildConfigField('String', 'TI_MODULE_AUTHOR', "\"Marc Bender\"")
@@ -31,7 +31,7 @@ android {
 		buildConfigField('String', 'TI_MODULE_ID', '"de.marcbender.emitterview"')
 		buildConfigField('String', 'TI_MODULE_LICENSE', "\"Apache 2.0\"")
  		buildConfigField('String', 'TI_MODULE_NAME', '"titanium-emitterview"')
-		buildConfigField('String', 'TI_MODULE_VERSION', '"1.0.3"')
+		buildConfigField('String', 'TI_MODULE_VERSION', '"1.0.5"')
 
 		// Have the following ${placeholders} replaced in the module's "AndroidManifest.xml" file.
 		manifestPlaceholders = project.ext.tiManifestPlaceholders
@@ -227,7 +227,7 @@ publishing {
 			// Set up Maven repo info.
 			groupId = 'de.marcbender'
 			artifactId = 'emitterview'
-			version = '1.0.3'
+			version = '1.0.5'
 			artifact file("${buildDir}/outputs/aar/${project.name}-release.aar")
 
 			// Generates the "*.pom" XML file containing all of Titanium's above dependencies.

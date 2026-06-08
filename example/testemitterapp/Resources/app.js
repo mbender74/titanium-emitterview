@@ -545,7 +545,7 @@ textWelcomeButton.addEventListener('click', function(e) {
 
 // ── Footer Info ──────────────────────────────────────────
 var footerLabel = Ti.UI.createLabel({
-    text: 'titanium-emitterview v1.0.4',
+    text: 'titanium-emitterview v1.0.5',
     color: '#555555',
     font: { fontSize: 12 },
     textAlign: 'center',
