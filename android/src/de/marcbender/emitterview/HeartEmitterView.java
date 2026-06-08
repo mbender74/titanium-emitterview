@@ -87,6 +87,7 @@ public class HeartEmitterView extends RelativeLayout {
     private float density = 1.0f;
     private boolean isRunning = false;
     private boolean isPaused = false;
+    private boolean isStopping = false;
 
     // Position
     private float startOffsetY = 0;
@@ -235,6 +236,8 @@ public class HeartEmitterView extends RelativeLayout {
         if (!isRunning) return;
 
         isRunning = false;
+        isStopping = true;
+
         if (frameCallback != null) {
             choreographer.removeFrameCallback(frameCallback);
         }
@@ -245,8 +248,16 @@ public class HeartEmitterView extends RelativeLayout {
             autoStopTask = null;
         }
 
+        // Cancel all active animations to stop in-flight particles immediately
+        for (Animator animator : new ArrayList<>(activeAnimations)) {
+            animator.removeAllListeners();
+            animator.cancel();
+        }
+        activeAnimations.clear();
+
         // Recycle bitmaps and clean up resources (Task #3 optimization)
         cleanup();
+        isStopping = false;
 
         if (autoRemove) {
             ((ViewGroup)getParent()).removeView(this);
@@ -260,6 +271,10 @@ public class HeartEmitterView extends RelativeLayout {
         if (frameCallback != null) {
             choreographer.removeFrameCallback(frameCallback);
         }
+        // Pause all active animations so particles freeze in place
+        for (Animator animator : new ArrayList<>(activeAnimations)) {
+            animator.pause();
+        }
     }
 
     public void resume() {
@@ -267,6 +282,10 @@ public class HeartEmitterView extends RelativeLayout {
         isPaused = false;
         // Re-register the frame callback
         choreographer.postFrameCallback(frameCallback);
+        // Resume all paused animations
+        for (Animator animator : new ArrayList<>(activeAnimations)) {
+            animator.resume();
+        }
     }
 
     public boolean isActive() {
@@ -594,12 +613,16 @@ public class HeartEmitterView extends RelativeLayout {
         animatorSet.play(fadeOut).with(translateY);
 
         final ImageView finalImageView = imageView;
+        activeAnimations.add(animatorSet);
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                removeView(finalImageView);
-                returnImageViewToPool(finalImageView);
-                currentCount--;
+                activeAnimations.remove(animatorSet);
+                if (!isStopping) {
+                    removeView(finalImageView);
+                    returnImageViewToPool(finalImageView);
+                    currentCount--;
+                }
             }
         });
 

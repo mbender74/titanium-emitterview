@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
 import org.appcelerator.kroll.KrollDict;
+import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.TiConfig;
 import org.appcelerator.titanium.TiC;
@@ -188,6 +189,85 @@ public class ViewProxy extends TiViewProxy {
 				mEmitterView.emissionRange(TiConvert.toFloat(d.get("emissionRange")));
 			}
 		}
+
+		@Override
+		public void propertyChanged(String key, Object oldValue, Object newValue, KrollProxy proxy) {
+			if (mEmitterView == null) {
+				super.propertyChanged(key, oldValue, newValue, proxy);
+				return;
+			}
+
+			if ("direction".equals(key)) {
+				mEmitterView.direction(TiConvert.toInt(newValue));
+			} else if ("particleType".equals(key)) {
+				mEmitterView.particleType(TiConvert.toInt(newValue));
+			} else if ("intensity".equals(key)) {
+				mEmitterView.intensity(TiConvert.toFloat(newValue));
+			} else if ("colors".equals(key)) {
+				if (newValue instanceof Object[]) {
+					Object[] colorArray = (Object[]) newValue;
+					if (colorArray.length > 0) {
+						int[] colors = new int[colorArray.length];
+						for (int i = 0; i < colorArray.length; i++) {
+							colors[i] = TiConvert.toColor(TiConvert.toString(colorArray[i]));
+						}
+						mEmitterView.colors(colors);
+					}
+				}
+			} else if ("velocity".equals(key)) {
+				mEmitterView.velocity(TiConvert.toFloat(newValue) * density);
+			} else if ("velocityRange".equals(key)) {
+				mEmitterView.velocityRange(TiConvert.toFloat(newValue) * density);
+			} else if ("spin".equals(key)) {
+				mEmitterView.spin(TiConvert.toFloat(newValue));
+			} else if ("spinRange".equals(key)) {
+				mEmitterView.spinRange(TiConvert.toFloat(newValue));
+			} else if ("amplitude".equals(key)) {
+				mEmitterView.amplitude(TiConvert.toInt(newValue));
+			} else if ("maxAmplitude".equals(key)) {
+				mEmitterView.maxAmplitude(TiConvert.toInt(newValue));
+			} else if ("duration".equals(key)) {
+				mEmitterView.duration(TiConvert.toFloat(newValue));
+			} else if ("maxDuration".equals(key)) {
+				mEmitterView.maxDuration(TiConvert.toFloat(newValue));
+			} else if ("text".equals(key)) {
+				mEmitterView.particleText(TiConvert.toString(newValue));
+			} else if ("fontSize".equals(key)) {
+				mEmitterView.textFontSize(TiConvert.toFloat(newValue));
+			} else if ("autoStopDuration".equals(key)) {
+				mEmitterView.autoStopDuration(TiConvert.toFloat(newValue));
+			} else if ("autoRemove".equals(key)) {
+				mEmitterView.autoRemove(TiConvert.toBoolean(newValue));
+			} else if ("lifetime".equals(key)) {
+				mEmitterView.lifetime(TiConvert.toFloat(newValue));
+			} else if ("scaleRange".equals(key)) {
+				mEmitterView.scaleRange(TiConvert.toFloat(newValue));
+			} else if ("scaleSpeed".equals(key)) {
+				mEmitterView.scaleSpeed(TiConvert.toFloat(newValue));
+			} else if ("emissionRange".equals(key)) {
+				mEmitterView.emissionRange(TiConvert.toFloat(newValue));
+			} else if ("particleImages".equals(key)) {
+				if (newValue instanceof Object[]) {
+					Object[] imageArray = (Object[]) newValue;
+					imageSources = new ArrayList<Object>();
+					imageReferences = new ArrayList<TiDrawableReference>();
+					cachedBitmaps = new ArrayList<Bitmap>();
+					for (Object o : imageArray) {
+						imageSources.add(o);
+						TiDrawableReference ref = TiDrawableReference.fromObject(myProxy, o);
+						imageReferences.add(ref);
+						Bitmap b = ref.getBitmap(false, true);
+						if (b != null) {
+							cachedBitmaps.add(b);
+						} else {
+							cachedBitmaps.add(null);
+						}
+					}
+				}
+			} else {
+				super.propertyChanged(key, oldValue, newValue, proxy);
+			}
+		}
 	}
 
 	public ViewProxy() {
@@ -259,87 +339,111 @@ public class ViewProxy extends TiViewProxy {
 	}
 
 	@Kroll.method
-	public void emitImage(KrollDict options) {
-		// Apply direction override if provided in options
-		Object directionObj = options.get("direction");
-		if (directionObj != null) {
-			int dir = TiConvert.toInt(directionObj);
-			if (dir >= 0 && dir <= 3) {
-				mEmitterView.direction(dir);
-			}
-		}
+	public void emitImage(final KrollDict options) {
+		// Resolve bitmap on the calling thread (safe — no UI access needed)
+		final Object directionObj = options.get("direction");
+		final boolean hasDirection = directionObj != null;
+		final int dir = hasDirection ? TiConvert.toInt(directionObj) : 0;
 
-		if (options.containsKey(PROPERTY_SOURCEVIEW)) {
-			Object sourceViewObject = options.get(PROPERTY_SOURCEVIEW);
-			if (sourceViewObject instanceof TiViewProxy) {
-				buttonView = (TiViewProxy) sourceViewObject;
-				TiUIView thatView = buttonView.peekView();
-				View nativeSource = thatView.getNativeView();
-				mEmitterView.buttonViewElevation(nativeSource.getElevation());
-
-				// Both views are in the same window — get window-relative positions
-				// and compute the offset of source center relative to mEmitterView
-				int[] sourceWinPos = new int[2];
-				int[] emitterWinPos = new int[2];
-				nativeSource.getLocationInWindow(sourceWinPos);
-				mEmitterView.getLocationInWindow(emitterWinPos);
-
-				// Center of sourceView relative to mEmitterView
-				float centerX = (sourceWinPos[0] - emitterWinPos[0]) + nativeSource.getWidth() / 2f;
-				float centerY = (sourceWinPos[1] - emitterWinPos[1]) + nativeSource.getHeight() / 2f;
-
-				mEmitterView.buttonHeight(nativeSource.getHeight());
-				mEmitterView.startOffset(centerY, centerX);
-				mEmitterView.bottomOffset(centerY);
-			}
+		final boolean hasSourceView = options.containsKey(PROPERTY_SOURCEVIEW);
+		final TiViewProxy srcProxy;
+		if (hasSourceView && options.get(PROPERTY_SOURCEVIEW) instanceof TiViewProxy) {
+			srcProxy = (TiViewProxy) options.get(PROPERTY_SOURCEVIEW);
+		} else {
+			srcProxy = null;
 		}
 
 		int idx;
 		if (options.containsKey("startId") && options.containsKey("endId")) {
 			int startId = TiConvert.toInt(options.get("startId"));
 			int endId = TiConvert.toInt(options.get("endId"));
-			// 0-based: startId=0 means first image. Clamp to valid range.
 			int startIdx = Math.max(0, startId);
 			int endIdx = Math.max(startIdx, endId);
 			idx = startIdx + ThreadLocalRandom.current().nextInt(endIdx - startIdx + 1);
 		} else if (options.containsKey("id")) {
-			// 0-based: id:0 = first image, id:1 = second image, etc.
 			int id = TiConvert.toInt(options.get("id"));
 			idx = Math.max(0, id);
 		} else {
 			idx = ThreadLocalRandom.current().nextInt(imageReferences.size());
 		}
 
-		// Clamp to valid range
 		if (idx < 0) idx = 0;
 		if (idx >= imageReferences.size()) idx = imageReferences.size() - 1;
 
-		// Use cached bitmap to avoid repeated decoding (prevents HWUI warnings)
-		Bitmap b = cachedBitmaps != null ? cachedBitmaps.get(idx) : imageReferences.get(idx).getBitmap(false, true);
-		int emitValue = options.containsKey("emitValue") ? Math.max(1, TiConvert.toInt(options.get("emitValue"))) : 1;
-		float emitSpread = options.containsKey("emitSpread") ? TiConvert.toFloat(options.get("emitSpread")) : 0;
-		float emitScaleRange = options.containsKey("emitScaleRange") ? TiConvert.toFloat(options.get("emitScaleRange")) : 0;
-			mEmitterView.emitImage(b, emitValue, emitSpread, emitScaleRange);
+		final Bitmap b = cachedBitmaps != null ? cachedBitmaps.get(idx) : imageReferences.get(idx).getBitmap(false, true);
+		final int emitValue = options.containsKey("emitValue") ? Math.max(1, TiConvert.toInt(options.get("emitValue"))) : 1;
+		final float emitSpread = options.containsKey("emitSpread") ? TiConvert.toFloat(options.get("emitSpread")) : 0;
+		final float emitScaleRange = options.containsKey("emitScaleRange") ? TiConvert.toFloat(options.get("emitScaleRange")) : 0;
+
+		// Dispatch UI operations to the main thread
+		runOnMainThread(new Runnable() {
+			@Override
+			public void run() {
+				if (hasDirection && dir >= 0 && dir <= 3) {
+					mEmitterView.direction(dir);
+				}
+
+				if (srcProxy != null) {
+					TiUIView thatView = srcProxy.peekView();
+					View nativeSource = thatView.getNativeView();
+					mEmitterView.buttonViewElevation(nativeSource.getElevation());
+
+					int[] sourceWinPos = new int[2];
+					int[] emitterWinPos = new int[2];
+					nativeSource.getLocationInWindow(sourceWinPos);
+					mEmitterView.getLocationInWindow(emitterWinPos);
+
+					float centerX = (sourceWinPos[0] - emitterWinPos[0]) + nativeSource.getWidth() / 2f;
+					float centerY = (sourceWinPos[1] - emitterWinPos[1]) + nativeSource.getHeight() / 2f;
+
+					mEmitterView.buttonHeight(nativeSource.getHeight());
+					mEmitterView.startOffset(centerY, centerX);
+					mEmitterView.bottomOffset(centerY);
+				}
+
+				mEmitterView.emitImage(b, emitValue, emitSpread, emitScaleRange);
+			}
+		});
 	}
 
 	@Kroll.method
 	public void start() {
-		mEmitterView.start();
+		runOnMainThread(new Runnable() {
+			@Override
+			public void run() {
+				mEmitterView.start();
+			}
+		});
 	}
 
 	@Kroll.method
 	public void stop() {
-		mEmitterView.stop();
+		runOnMainThread(new Runnable() {
+			@Override
+			public void run() {
+				mEmitterView.stop();
+			}
+		});
 	}
 
 	@Kroll.method
 	public void pause() {
-		mEmitterView.pause();
+		runOnMainThread(new Runnable() {
+			@Override
+			public void run() {
+				mEmitterView.pause();
+			}
+		});
 	}
 
 	@Kroll.method
 	public void resume() {
-		mEmitterView.resume();
+		runOnMainThread(new Runnable() {
+			@Override
+			public void run() {
+				mEmitterView.resume();
+			}
+		});
 	}
 
 	@Kroll.method

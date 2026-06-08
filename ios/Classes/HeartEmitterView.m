@@ -14,7 +14,6 @@
 @property (nonatomic, assign) BOOL isRunning;
 @property (nonatomic, assign) BOOL isPaused;
 @property (nonatomic, strong) NSTimer *autoStopTimer;
-@property (nonatomic, assign) CGFloat savedBirthRate;
 
 // Shape image caching (Task #4 optimization)
 @property (nonatomic, strong) NSCache<NSString *, UIImage *> *shapeImageCache;
@@ -92,16 +91,15 @@
 - (void)setupEmitterLayer {
     _emitterLayer = [CAEmitterLayer layer];
     _emitterLayer.emitterShape = kCAEmitterLayerLine;
-    _emitterLayer.emitterPosition = CGPointMake(self.bounds.size.width / 2, -10);
-    _emitterLayer.emitterSize = CGSizeMake(self.bounds.size.width, 1);
+    _emitterLayer.frame = self.bounds;
     [self.layer addSublayer:_emitterLayer];
+    [self updateEmitterPosition];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     _emitterLayer.frame = self.bounds;
-    _emitterLayer.emitterPosition = CGPointMake(self.bounds.size.width / 2, -10);
-    _emitterLayer.emitterSize = CGSizeMake(self.bounds.size.width, 1);
+    [self updateEmitterPosition];
 }
 
 - (void)dealloc {
@@ -111,14 +109,17 @@
 #pragma mark - Direction Mapping
 
 - (CGFloat)emissionLongitudeForDirection {
-    // CAEmitterCell emissionLongitude: 0 = right, π/2 = down, π = left, -π/2 = up
+    // CAEmitterCell emissionLongitude is measured from the emitter line axis.
+    // For kCAEmitterLayerLine with a horizontal line, 0 = along the line (right).
+    // We need +π/2 offset so that our direction constants map correctly:
+    // UP = -π/2 → 0 (along line, right) + π/2 rotation = upward
     switch (self.direction) {
-        case EmitterDirectionUp:    return -M_PI_2;
-        case EmitterDirectionDown:  return M_PI_2;
-        case EmitterDirectionLeft:  return M_PI;
-        case EmitterDirectionRight: return 0;
+        case EmitterDirectionUp:    return 0;
+        case EmitterDirectionDown:  return M_PI;
+        case EmitterDirectionLeft:  return -M_PI_2;
+        case EmitterDirectionRight: return M_PI_2;
     }
-    return M_PI_2; // default: down
+    return M_PI; // default: down
 }
 
 - (CGFloat)emitterPositionYForDirection {
@@ -373,6 +374,11 @@
     self.isRunning = YES;
     self.isPaused = NO;
 
+    // Reset layer speed (in case it was paused)
+    self.layer.speed = 1;
+    self.layer.timeOffset = 0;
+    self.layer.beginTime = 0;
+
     // Reset emitter position from custom override back to default
     self.emitterPosition = CGPointZero;
     [self updateEmitterPosition];
@@ -391,12 +397,24 @@
     if (!self.isRunning) return;
 
     self.isRunning = NO;
+    self.isPaused = NO;
 
-    // Set birthRate to 0 - stop new emission, existing particles finish naturally
-    // Don't clear cells so start() can recreate them with new settings
-    for (CAEmitterCell *cell in _emitterLayer.emitterCells) {
-        cell.birthRate = 0;
+    // Reset layer speed (in case we were paused)
+    self.layer.speed = 1;
+    self.layer.timeOffset = 0;
+    self.layer.beginTime = 0;
+
+    // Remove all emitter cells to stop new emissions
+    _emitterLayer.emitterCells = nil;
+
+    // Remove all sublayers (in-flight particles from both continuous and burst emission)
+    for (CALayer *layer in [self.layer.sublayers copy]) {
+        [layer removeFromSuperlayer];
     }
+
+    // Re-add a clean emitter layer
+    [self setupEmitterLayer];
+    [self updateEmitterPosition];
 
     [self.autoStopTimer invalidate];
     self.autoStopTimer = nil;
@@ -409,18 +427,24 @@
 - (void)pause {
     if (!self.isRunning || self.isPaused) return;
     self.isPaused = YES;
-    self.savedBirthRate = self.intensity * 10;
-    for (CAEmitterCell *cell in _emitterLayer.emitterCells) {
-        cell.birthRate = 0;
-    }
+
+    // Freeze all animations in the view (particles stop in place)
+    CFTimeInterval pausedTime = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    self.layer.speed = 0;
+    self.layer.timeOffset = pausedTime;
 }
 
 - (void)resume {
     if (!self.isRunning || !self.isPaused) return;
     self.isPaused = NO;
-    for (CAEmitterCell *cell in _emitterLayer.emitterCells) {
-        cell.birthRate = self.savedBirthRate;
-    }
+
+    // Resume all animations from where they were paused
+    CFTimeInterval pausedTime = self.layer.timeOffset;
+    self.layer.speed = 1;
+    self.layer.timeOffset = 0;
+    self.layer.beginTime = 0;
+    CFTimeInterval timeSincePause = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    self.layer.beginTime = timeSincePause;
 }
 
 - (BOOL)isActive {
